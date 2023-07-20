@@ -1,6 +1,7 @@
 import './styles.css';
 import Cookie from '../../Images/cookie.svg';
 import { useState } from 'react';
+// na poczet pullrequesta//
 
 export const CookieBanner = () => {
   const currentBannerState = localStorage.getItem('cookie-box'); // nie ma nic? 0 / false
