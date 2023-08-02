@@ -28,12 +28,22 @@ export const AnimationsJS = () => {
   useEffect(() => {
     if (opacity > 0) {
       const interval = setInterval(() => {
-        setOpacity(opacity - 0.003);
-      }, 50);
-
+        setOpacity(opacity - 0.05);
+        console.log(opacity);
+      }, 300);
       return () => clearInterval(interval);
     }
   }, [opacity]);
+
+  // useEffect(() => {
+  //   if (opacity <= 1) {
+  //     const interval = setInterval(() => {
+  //       setOpacity(opacity + 0.05);
+  //     }, 300);
+  //     console.log(opacity);
+  //     return () => clearInterval(interval);
+  //   }
+  // }, [opacity]);
 
   return (
     <div>
