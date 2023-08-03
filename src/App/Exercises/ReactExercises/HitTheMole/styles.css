@@ -37,3 +37,10 @@
   background: #ebebeb;
   display: flex;
 }
+.htm-stage-cell--green {
+  background: #e2fbd7;
+}
+
+.htm-stage-cell--red {
+  background: #f3aea8;
+}
