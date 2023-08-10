@@ -1,0 +1,23 @@
+.memobutton-custom {
+  border-radius: 10px;
+  border: 1px solid #23213d;
+  background-color: #23213d;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.memobutton-custom--active {
+  border: 1px solid #fe3756;
+  background-color: #fe3756;
+}
+
+.memobutton--pass {
+  border: 1px solid #c20000;
+  background-color: #c20000;
+}
+
+.memobutton-custom-disabled {
+  cursor: default;
+}
