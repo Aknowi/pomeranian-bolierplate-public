@@ -1,0 +1,38 @@
+.mg-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  max-width: 410px;
+  margin: 20px;
+  align-self: center;
+}
+
+.mg-board-cell {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  background: #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-family: inherit;
+  font-size: 80px;
+  cursor: pointer;
+}
+
+.mg-board-cell-clicked {
+  background: #c9f8d1;
+  -webkit-box-shadow: 5px 5px 21px -1px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 5px 5px 21px -1px rgba(0, 0, 0, 0.21);
+  box-shadow: 5px 5px 21px -1px rgba(0, 0, 0, 0.21);
+}
+
+.mg-board-cell-paired {
+  background: #94f8a5;
+  -webkit-box-shadow: 5px 5px 21px -1px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 5px 5px 21px -1px rgba(0, 0, 0, 0.21);
+  box-shadow: 5px 5px 21px -1px rgba(0, 0, 0, 0.21);
+}
