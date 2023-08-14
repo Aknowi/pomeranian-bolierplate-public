@@ -6,6 +6,7 @@ import { EditIcon } from '../Components/Icons/EditIcon';
 import { CodeIcon } from '../Components/Icons/CodeIcon';
 import { BlogIcon } from '../Components/Icons/BlogIcon';
 import waving from '../Images/waving.png';
+
 export const Dashboard = () => {
   const dashboardData = [
     {
