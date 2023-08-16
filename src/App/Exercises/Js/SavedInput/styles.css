@@ -1,0 +1,49 @@
+.nickList-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  width: 800px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 700;
+  margin-top: 50px;
+}
+
+.nickList-form {
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  align-content: flex-start;
+}
+
+.nickList-form input {
+  height: 48px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #c8cbd1;
+  padding: 15px;
+}
+
+.nickList-form button {
+  width: 150px;
+  height: 56px;
+  background-color: #fe3756;
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid #fe3756;
+  font-family: inherit;
+  font-size: 17px;
+  margin-left: 80px;
+}
+
+#nick-display {
+  width: 300px;
+  list-style-type: none;
+  border-radius: 8px;
+  border: 1px solid #c8cbd1;
+  padding: 30px;
+  margin: 0;
+}
