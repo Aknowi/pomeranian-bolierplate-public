@@ -1,0 +1,35 @@
+.dogapi-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: Poppins;
+  width: 800px;
+  justify-content: center;
+  align-items: center;
+}
+
+.dogapi-wrapper h3 {
+  margin: 0;
+}
+.dogapi-button {
+  border: 1px solid rgb(254, 55, 86);
+  border-radius: 8px;
+  background-color: #fe3756;
+  color: #fff;
+  width: 200px;
+  height: 50px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dogapi-button:hover {
+  box-shadow: 10px 10px 14px -8px rgba(123, 30, 44, 0.38);
+  -webkit-box-shadow: 10px 10px 14px -8px rgba(123, 30, 44, 0.38);
+  -moz-box-shadow: 10px 10px 14px -8px rgba(123, 30, 44, 0.38);
+}
+
+.dogapi-image {
+  max-width: 600px;
+  max-height: 450px;
+}
