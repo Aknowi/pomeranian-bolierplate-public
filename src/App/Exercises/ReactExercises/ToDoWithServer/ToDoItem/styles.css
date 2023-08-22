@@ -13,18 +13,17 @@
   font-family: Poppins;
   font-weight: 400;
   margin-bottom: 15px;
-  color: green;
 }
 
 .toDoItem-title {
-  /* color: #23213d; */
+  color: #23213d;
   font-size: 18px;
   font-weight: 700;
   margin: 0 0 10px 0;
 }
 
 .toDoItem-details {
-  /* color: #6b7280; */
+  color: #6b7280;
   font-size: 12px;
   margin: 0;
 }
@@ -60,7 +59,10 @@
 }
 
 .toDoItem--done {
-  color: #6b7280 !important;
-  /* color: #6b7280; */
   background-color: #c8cbd1;
+  border-left: 5px solid #6b7280;
+}
+
+.toDoItem--done .toDoItem-left * {
+  color: rgba(107, 114, 128, 1);
 }
