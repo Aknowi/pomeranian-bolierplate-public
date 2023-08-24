@@ -1,0 +1,59 @@
+.mtd-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 400px;
+  height: 500px;
+  font-family: Poppins;
+  font-size: 16px;
+}
+
+.mtd-title {
+  margin-bottom: 30px;
+}
+
+.mts-label {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.mtd-input-style {
+  height: 48px;
+  padding: 13px 16px;
+  border-radius: 5px;
+  border: 1px solid #c8cbd1;
+  font-family: inherit;
+  margin-bottom: 20px;
+}
+
+.mtd-textarea {
+  resize: none;
+  height: 120px;
+}
+
+.mtd-button-style {
+  color: #fff;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 8px 35px;
+}
+
+.mtd-back {
+  position: absolute;
+  bottom: 0;
+  left: 120px;
+  background-color: #23213d;
+  border: 1px solid #23213d;
+}
+
+.mtd-add {
+  position: absolute;
+  bottom: 0;
+  left: 275px;
+  align-self: flex-end;
+  border: 1px solid #fe3756;
+  background: #fe3756;
+}

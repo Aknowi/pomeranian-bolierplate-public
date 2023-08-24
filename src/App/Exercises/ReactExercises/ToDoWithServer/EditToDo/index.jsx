@@ -1,28 +1,33 @@
 import { useState } from 'react';
 import './styles.css';
 
-export const MakeToDo = ({
-  setIsAddActive,
+export const EditToDo = ({
   setIsEditClicked,
   setIsRefreshNeeded,
+  toDoObject,
+  setToDoObject,
 }) => {
-  const [isForm, setIsForm] = useState({ title: '', note: '', author: '' });
   const [isAddError, setIsAddError] = useState(false);
 
-  //  UTWORZENIE NOWEGO ELEMENTU LISTY
-  const createToDo = async () => {
-    console.log(JSON.stringify(isForm));
+  console.log(toDoObject);
+
+  //  EDYTOWANIE ELEMENTU LISTY
+  const editToDo = async () => {
+    console.log(JSON.stringify(toDoObject));
     try {
-      const response = await fetch(`http://localhost:3333/api/todo`, {
-        method: 'POST',
-        headers: new Headers({
-          'Content-Type': 'application/json',
-        }),
-        body: JSON.stringify(isForm),
-      });
+      const response = await fetch(
+        `http://localhost:3333/api/todo/${toDoObject.id}`,
+        {
+          method: 'PUT',
+          headers: new Headers({
+            'Content-Type': 'application/json',
+          }),
+          body: JSON.stringify(toDoObject),
+        }
+      );
 
       if (response.status !== 200) {
-        throw new Error('Error from createToDo');
+        throw new Error('Error from editToDo');
       }
       if (response.status === 200) {
         setIsRefreshNeeded(true);
@@ -33,44 +38,35 @@ export const MakeToDo = ({
   };
 
   const handleBackClick = () => {
-    setIsAddActive(false);
     setIsEditClicked(false);
   };
 
   const onChange = (e) => {
     const value = e.target.value;
-    setIsForm({ ...isForm, [e.target.name]: value });
+    setToDoObject({ ...toDoObject, [e.target.name]: value });
   };
-  const handleAddOnSubmit = (e) => {
+  const handleEditOnSubmit = (e) => {
     e.preventDefault();
-    createToDo();
-    setIsAddActive(false);
+    editToDo();
+    if (!isAddError) {
+      setIsEditClicked(false);
+      setIsRefreshNeeded(true);
+    }
   };
 
   return (
     <div className="mtd-wrapper">
       <p className="mtd-title">Dodawanie zadania</p>
-      <form onSubmit={handleAddOnSubmit}>
+      <form onSubmit={handleEditOnSubmit}>
         <label className="mts-label">
           Tytuł
           <input
             type="text"
             name="title"
-            value={isForm.title}
+            value={toDoObject.title}
             onChange={onChange}
             className="mtd-input-style"
             placeholder="Kupić parasol"
-          ></input>
-        </label>
-        <label className="mts-label">
-          Autor
-          <input
-            type="text"
-            name="author"
-            value={isForm.author}
-            onChange={onChange}
-            className="mtd-input-style"
-            placeholder="Iwona"
           ></input>
         </label>
         <label className="mts-label">
@@ -78,7 +74,7 @@ export const MakeToDo = ({
           <textarea
             type="text"
             name="note"
-            value={isForm.note}
+            value={toDoObject.note}
             onChange={onChange}
             className="mtd-input-style mtd-textarea"
             placeholder="Zmierzyć ile mamy miejsca na balkonie od barierki do kanapy i ile musi mieć max średnicy - miarka!!"
@@ -95,7 +91,7 @@ export const MakeToDo = ({
           value="submit"
           className="mtd-add mtd-button-style"
         >
-          dodaj
+          zapisz
         </button>
       </form>
     </div>

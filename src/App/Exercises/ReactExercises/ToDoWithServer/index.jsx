@@ -3,36 +3,43 @@ import { ToDoItem } from './ToDoItem';
 import './styles.css';
 import { MakeToDo } from './MakeToDo';
 import { ToDoExeptions } from './ToDoExeptions';
+import { EditToDo } from './EditToDo';
 
 // TO DO:
 // - hovery na przyciski edit, done, trash
 // - css na przyciski edit, trash po kliknięciu w done
-// - schowac 'data zakonczenia'
-// - dodac catch error przy getToDO
 // - dodac wyglądy jak lista jest pusta oraz obsługa błędów
+// - rozwiązac problem usuwania i done error na wszystkich (wyglad)
 
-// Pytanie - czemu 2x renderuje sie na poczatku tablica z todo
+// Pytanie - dlaczego 2x renderuje sie na poczatku tablica z todo
+// Pytanie - dlaczego tak długo to renderuje
 
 export const ToDoWithServer = () => {
   const [isAddActive, setIsAddActive] = useState(false);
   const [isEditClicked, setIsEditClicked] = useState(false);
   const [isRefreshNeeded, setIsRefreshNeeded] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [isDoneError, setIsDoneError] = useState(false);
+  const [isDoneError, setIsDoneError] = useState({ boolean: false, id: '' });
+  const [isTrashError, setIsTrashError] = useState({ boolean: false, id: '' });
 
+  const [toDoObject, setToDoObject] = useState({});
   const [toDo, setToDo] = useState([]);
 
   //  POBRANIE LISTY Z SERVERA
   async function getToDo() {
+    console.log('to jest gettodo');
     try {
       const response = await fetch('http://localhost:3333/api/todo');
+      console.log('status get ' + response.status);
       if (response.status !== 200) {
         throw new Error('Error from getToDo');
       }
+
       const toDoJson = await response.json();
       setToDo(toDoJson);
       setIsRefreshNeeded(false);
     } catch (error) {
+      console.log(error);
       setIsError(true);
     }
   }
@@ -43,9 +50,16 @@ export const ToDoWithServer = () => {
       const response = await fetch(`http://localhost:3333/api/todo/${id}`, {
         method: 'DELETE',
       });
-      const toDoJsonDelete = await response.json();
+      console.log('status delete ' + response.status);
+      if (response.status !== 200) {
+        throw new Error('Error from markToDoAsDone');
+      }
+      if (response.status === 200) {
+        setIsRefreshNeeded(true);
+      }
     } catch (error) {
-      alert('backend when delete');
+      console.log(error);
+      setIsTrashError({ boolean: true, id: { id } });
     }
   };
 
@@ -58,42 +72,54 @@ export const ToDoWithServer = () => {
           method: 'PUT',
         }
       );
+      console.log('status mark' + response.status);
       if (response.status !== 200) {
         throw new Error('Error from markToDoAsDone');
       }
+      if (response.status === 200) {
+        setIsRefreshNeeded(true);
+      }
     } catch (error) {
-      setIsDoneError(true);
+      console.log(error);
+      setIsDoneError({ boolean: true, id: { id } });
     }
   };
 
   const onClickDone = (object) => {
     markToDoAsDone(object.id);
-    setIsRefreshNeeded(true);
   };
 
   const handleAddClick = () => {
     setIsAddActive(true);
   };
 
-  const onClickEdit = () => {
+  const onClickEdit = (object) => {
+    setToDoObject(object);
+    console.log('object po kliknieciu edit' + toDoObject);
     setIsEditClicked(true);
-    setIsAddActive(true);
   };
 
   const onClickTrash = (object) => {
     deleteToDoPerId(object.id);
-    setIsRefreshNeeded(true);
   };
 
   const handleRefreshClick = () => {
     setIsRefreshNeeded(true);
-    setIsError(false);
+    setTimeout(() => {
+      setIsError(false);
+    }, 2000);
   };
 
   useEffect(() => {
     getToDo();
+  }, []);
+
+  useEffect(() => {
+    if (isRefreshNeeded) {
+      getToDo();
+      console.log('odswiezylo');
+    }
   }, [isRefreshNeeded, setIsRefreshNeeded]);
-  console.log(toDo);
 
   return (
     <div className="tdws-wrapper">
@@ -104,14 +130,14 @@ export const ToDoWithServer = () => {
           onClick={handleRefreshClick}
         />
       )}
-      {!isAddActive && !isError && toDo.length === 0 && (
+      {!isAddActive && !isError && toDo.length === 0 && !isEditClicked && (
         <ToDoExeptions
           info="Brawo! Nie masz aktualnie żadnych zadań do zrealizowania."
           title="dodaj zadanie"
           onClick={handleAddClick}
         />
       )}
-      {!isAddActive && !isError && toDo.length !== 0 && (
+      {!isAddActive && !isError && toDo.length !== 0 && !isEditClicked && (
         <>
           <p>Tutaj znajdziesz liste swoich zadań</p>
           <button
@@ -125,7 +151,7 @@ export const ToDoWithServer = () => {
               <li>
                 <ToDoItem
                   onClickDone={() => onClickDone(object)}
-                  onClickEdit={onClickEdit}
+                  onClickEdit={() => onClickEdit(object)}
                   isEditClicked={isEditClicked}
                   title={object.title}
                   author={object.author}
@@ -135,6 +161,7 @@ export const ToDoWithServer = () => {
                   id={object.id}
                   onClickTrash={() => onClickTrash(object)}
                   isDoneError={isDoneError}
+                  isTrashError={isTrashError}
                 />
               </li>
             ))}
@@ -150,7 +177,14 @@ export const ToDoWithServer = () => {
       {isAddActive && (
         <MakeToDo
           setIsAddActive={setIsAddActive}
-          isEditClicked={isEditClicked}
+          setIsEditClicked={setIsEditClicked}
+          setIsRefreshNeeded={setIsRefreshNeeded}
+        />
+      )}
+      {isEditClicked && !isAddActive && !isError && toDo.length !== 0 && (
+        <EditToDo
+          setToDoObject={setToDoObject}
+          toDoObject={toDoObject}
           setIsEditClicked={setIsEditClicked}
           setIsRefreshNeeded={setIsRefreshNeeded}
         />

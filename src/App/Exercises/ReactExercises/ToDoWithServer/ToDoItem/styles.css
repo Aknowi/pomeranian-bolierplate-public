@@ -50,9 +50,13 @@
   height: 30px;
 }
 
-.toDoItem-button--error svg * {
+.toDoItem-done--error svg * {
   stroke: #e12b1b;
   fill: #e12b1b;
+}
+
+.toDoItem-trash--error svg * {
+  stroke: #e12b1b;
 }
 
 .toDoItem-text--error {

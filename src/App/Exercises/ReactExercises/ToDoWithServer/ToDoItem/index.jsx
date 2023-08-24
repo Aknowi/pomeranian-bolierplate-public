@@ -14,9 +14,9 @@ export const ToDoItem = ({
   isDone,
   onClickTrash,
   isDoneError,
+  isTrashError,
 }) => {
   const doneClassName = isDone ? 'toDoItem--done' : '';
-  console.log(isDoneError);
   return (
     <div className={`toDoItem-box ${doneClassName}`}>
       <div className="toDoItem-left">
@@ -30,7 +30,7 @@ export const ToDoItem = ({
           <button
             onClick={onClickDone}
             className={`toDoItem-button ${
-              isDoneError ? 'toDoItem-button--error' : ''
+              isDoneError.boolean ? 'toDoItem-done--error' : ''
             }`}
           >
             <DoneIcon />
@@ -43,10 +43,15 @@ export const ToDoItem = ({
         >
           <EditIcon />
         </button>
-        <button onClick={onClickTrash} className="toDoItem-button">
+        <button
+          onClick={onClickTrash}
+          className={`toDoItem-button ${
+            isTrashError.boolean ? 'toDoItem-trash--error' : ''
+          }`}
+        >
           <TrashIcon />
         </button>
-        {isDoneError && !isDone && (
+        {(isDoneError.boolean || isTrashError.boolean) && (
           <p className="toDoItem-text--error">nie udało się ukończyć</p>
         )}
         <div className="toDoItem-buttons-details">
