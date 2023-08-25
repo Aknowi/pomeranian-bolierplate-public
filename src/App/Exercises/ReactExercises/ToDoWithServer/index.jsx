@@ -5,17 +5,9 @@ import { MakeToDo } from './MakeToDo';
 import { ToDoExeptions } from './ToDoExeptions';
 import { EditToDo } from './EditToDo';
 
-// TO DO:
-// - hovery na przyciski edit, done, trash
-// - css na przyciski edit, trash po kliknięciu w done
-// - dodac wyglądy jak lista jest pusta oraz obsługa błędów
-// - rozwiązac problem usuwania i done error na wszystkich (wyglad)
-
-// Pytanie - dlaczego 2x renderuje sie na poczatku tablica z todo
-// Pytanie - dlaczego tak długo to renderuje
-
 export const ToDoWithServer = () => {
   const [isAddActive, setIsAddActive] = useState(false);
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isEditClicked, setIsEditClicked] = useState(false);
   const [isRefreshNeeded, setIsRefreshNeeded] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -59,7 +51,7 @@ export const ToDoWithServer = () => {
       }
     } catch (error) {
       console.log(error);
-      setIsTrashError({ boolean: true, id: { id } });
+      setIsTrashError({ boolean: true, id });
     }
   };
 
@@ -72,7 +64,7 @@ export const ToDoWithServer = () => {
           method: 'PUT',
         }
       );
-      console.log('status mark' + response.status);
+      console.log('status mark ' + response.status);
       if (response.status !== 200) {
         throw new Error('Error from markToDoAsDone');
       }
@@ -81,7 +73,7 @@ export const ToDoWithServer = () => {
       }
     } catch (error) {
       console.log(error);
-      setIsDoneError({ boolean: true, id: { id } });
+      setIsDoneError({ boolean: true, id });
     }
   };
 
@@ -95,7 +87,6 @@ export const ToDoWithServer = () => {
 
   const onClickEdit = (object) => {
     setToDoObject(object);
-    console.log('object po kliknieciu edit' + toDoObject);
     setIsEditClicked(true);
   };
 
@@ -104,14 +95,19 @@ export const ToDoWithServer = () => {
   };
 
   const handleRefreshClick = () => {
-    setIsRefreshNeeded(true);
-    setTimeout(() => {
-      setIsError(false);
-    }, 2000);
+    getToDo()
+      .then(() => {
+        setIsRefreshNeeded(true);
+      })
+      .then(() => {
+        setIsError(false);
+      });
   };
 
   useEffect(() => {
-    getToDo();
+    getToDo().then(() => {
+      setIsFirstLoad(false);
+    });
   }, []);
 
   useEffect(() => {
@@ -130,13 +126,17 @@ export const ToDoWithServer = () => {
           onClick={handleRefreshClick}
         />
       )}
-      {!isAddActive && !isError && toDo.length === 0 && !isEditClicked && (
-        <ToDoExeptions
-          info="Brawo! Nie masz aktualnie żadnych zadań do zrealizowania."
-          title="dodaj zadanie"
-          onClick={handleAddClick}
-        />
-      )}
+      {!isAddActive &&
+        !isError &&
+        toDo.length === 0 &&
+        !isEditClicked &&
+        !isFirstLoad && (
+          <ToDoExeptions
+            info="Brawo! Nie masz aktualnie żadnych zadań do zrealizowania."
+            title="dodaj zadanie"
+            onClick={handleAddClick}
+          />
+        )}
       {!isAddActive && !isError && toDo.length !== 0 && !isEditClicked && (
         <>
           <p>Tutaj znajdziesz liste swoich zadań</p>
@@ -146,26 +146,26 @@ export const ToDoWithServer = () => {
           >
             &#43;
           </button>
-          <ul className="tdws-list">
-            {toDo.map((object) => (
-              <li>
-                <ToDoItem
-                  onClickDone={() => onClickDone(object)}
-                  onClickEdit={() => onClickEdit(object)}
-                  isEditClicked={isEditClicked}
-                  title={object.title}
-                  author={object.author}
-                  createdAt={object.createdAt}
-                  note={object.note}
-                  isDone={object.isDone}
-                  id={object.id}
-                  onClickTrash={() => onClickTrash(object)}
-                  isDoneError={isDoneError}
-                  isTrashError={isTrashError}
-                />
-              </li>
-            ))}
-          </ul>
+
+          {toDo.map((object) => (
+            <div key={object.id}>
+              <ToDoItem
+                onClickDone={() => onClickDone(object)}
+                onClickEdit={() => onClickEdit(object)}
+                isEditClicked={isEditClicked}
+                title={object.title}
+                author={object.author}
+                createdAt={object.createdAt}
+                doneDate={object.doneDate}
+                note={object.note}
+                isDone={object.isDone}
+                id={object.id}
+                onClickTrash={() => onClickTrash(object)}
+                isDoneError={isDoneError}
+                isTrashError={isTrashError}
+              />
+            </div>
+          ))}
           <button
             onClick={handleAddClick}
             className="tdws-add-button-style tdws-add-button"

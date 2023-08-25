@@ -7,9 +7,7 @@ export const EditToDo = ({
   toDoObject,
   setToDoObject,
 }) => {
-  const [isAddError, setIsAddError] = useState(false);
-
-  console.log(toDoObject);
+  const [isError, setIsError] = useState(false);
 
   //  EDYTOWANIE ELEMENTU LISTY
   const editToDo = async () => {
@@ -25,15 +23,18 @@ export const EditToDo = ({
           body: JSON.stringify(toDoObject),
         }
       );
-
+      console.log('status edit ' + response.status);
       if (response.status !== 200) {
         throw new Error('Error from editToDo');
       }
-      if (response.status === 200) {
+      if (response.message === 'Server error') {
+        throw new Error('Error from editToDo server error');
+      }
+      if (response.status === 200 && response.message !== 'Server error') {
         setIsRefreshNeeded(true);
       }
     } catch (error) {
-      setIsAddError(true);
+      setIsError(true);
     }
   };
 
@@ -48,48 +49,53 @@ export const EditToDo = ({
   const handleEditOnSubmit = (e) => {
     e.preventDefault();
     editToDo();
-    if (!isAddError) {
+    if (!isError) {
       setIsEditClicked(false);
       setIsRefreshNeeded(true);
     }
   };
-
+  console.log(toDoObject);
   return (
-    <div className="mtd-wrapper">
-      <p className="mtd-title">Dodawanie zadania</p>
-      <form onSubmit={handleEditOnSubmit}>
-        <label className="mts-label">
+    <div className="etd-wrapper">
+      <p className="etd-title">Dodawanie zadania</p>
+      <form onSubmit={handleEditOnSubmit} className="etd-form">
+        <label tmlFor="title" className="etd-label">
           Tytuł
-          <input
-            type="text"
-            name="title"
-            value={toDoObject.title}
-            onChange={onChange}
-            className="mtd-input-style"
-            placeholder="Kupić parasol"
-          ></input>
         </label>
-        <label className="mts-label">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          value={toDoObject.title}
+          onChange={onChange}
+          className="etd-input-style"
+          placeholder="Kupić parasol"
+        ></input>
+        <input type="hidden" name="isDone" id="isDone" value="0"></input>
+        <label tmlFor="note" className="etd-label">
           Treść
-          <textarea
-            type="text"
-            name="note"
-            value={toDoObject.note}
-            onChange={onChange}
-            className="mtd-input-style mtd-textarea"
-            placeholder="Zmierzyć ile mamy miejsca na balkonie od barierki do kanapy i ile musi mieć max średnicy - miarka!!"
-          ></textarea>
         </label>
+        <textarea
+          type="text"
+          name="note"
+          id="note"
+          value={toDoObject.note}
+          onChange={onChange}
+          className="etd-input-style etd-textarea"
+          placeholder="Zmierzyć ile mamy miejsca na balkonie od barierki do kanapy i ile musi mieć max średnicy - miarka!!"
+        ></textarea>
 
-        {isAddError && <p>Wystąpił błąd, spróbuj ponownie.</p>}
+        {isError && (
+          <p className="etd-error-note">Wystąpił błąd, spróbuj ponownie.</p>
+        )}
 
-        <button onClick={handleBackClick} className="mtd-back mtd-button-style">
+        <button onClick={handleBackClick} className="etd-back mtd-button-style">
           cofnij
         </button>
         <button
           type="submit"
           value="submit"
-          className="mtd-add mtd-button-style"
+          className="etd-add etd-button-style"
         >
           zapisz
         </button>

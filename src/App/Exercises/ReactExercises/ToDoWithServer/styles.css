@@ -1,5 +1,5 @@
 .tdws-wrapper {
-  max-width: 700px;
+  max-width: 600px;
   font-family: Poppins;
   font-size: 16px;
   display: flex;
@@ -22,14 +22,11 @@
   width: 30px;
   height: 30px;
   padding: 0px 5px;
+  margin-bottom: 20px;
 }
 
 .tdws-add-button {
   font-size: 18px;
   font-weight: 500;
   padding: 8px 35px;
-}
-
-.tdws-list {
-  list-style: none;
 }
