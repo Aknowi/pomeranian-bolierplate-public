@@ -1,0 +1,24 @@
+.tdr-wrapper {
+  align-self: center;
+  width: 400px;
+  margin-top: 50px;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 700;
+  color: #000000;
+}
+
+.tdr-button {
+  background-color: #fe3756;
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid #fe3756;
+  font-family: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: center;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 35px;
+  margin-top: 20px;
+}
