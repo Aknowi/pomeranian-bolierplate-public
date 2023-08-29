@@ -10,6 +10,8 @@ import { MoreOrLessGameMetaData } from './MoreOrLessGame/router-data';
 import { HitTheMoleMetaData } from './HitTheMole/router-data';
 import { MemoGameMetaData } from './MemoGame/router-data';
 import { ToDoWithServerMetaData } from './ToDoWithServer/router-data';
+import { ReactUseRefMetaData } from './ReactUseRef/router-data';
+import { FormsMetaData } from './Forms/router-data';
 
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
@@ -22,5 +24,7 @@ export const blockRouterMetaData = [
   HitTheMoleMetaData,
   MemoGameMetaData,
   ToDoWithServerMetaData,
+  ReactUseRefMetaData,
+  FormsMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);

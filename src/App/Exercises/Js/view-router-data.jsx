@@ -22,6 +22,7 @@ import { blockRouterMetaData as PromisesMetaData } from './Promises/router-data'
 import { blockRouterMetaData as PromiseMethodsMetaData } from './PromiseMethods/router-data';
 import { blockRouterMetaData as DogAPIMetaData } from './DogAPI/router-data';
 import { blockRouterMetaData as LocalDevAndFetchMetaData } from './LocalDevAndFetch/router-data';
+import { blockRouterMetaData as DOMuseRefMetaData } from './DOMuseRef/router-data';
 
 export const blockRouterMetaData = [
   blockRouterMetaDataJsVariables1,
@@ -46,5 +47,6 @@ export const blockRouterMetaData = [
   PromiseMethodsMetaData,
   DogAPIMetaData,
   LocalDevAndFetchMetaData,
+  DOMuseRefMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
