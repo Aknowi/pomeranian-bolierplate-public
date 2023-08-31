@@ -12,6 +12,8 @@ import { MemoGameMetaData } from './MemoGame/router-data';
 import { ToDoWithServerMetaData } from './ToDoWithServer/router-data';
 import { ReactUseRefMetaData } from './ReactUseRef/router-data';
 import { FormsMetaData } from './Forms/router-data';
+import { LibrariesFormMetaData } from './LibrariesForm/router-data';
+import { FirebaseLoginFormMetaData } from './FirebaseLoginForm/router-data';
 
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
@@ -26,5 +28,7 @@ export const blockRouterMetaData = [
   ToDoWithServerMetaData,
   ReactUseRefMetaData,
   FormsMetaData,
+  LibrariesFormMetaData,
+  FirebaseLoginFormMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
