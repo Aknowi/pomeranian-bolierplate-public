@@ -30,15 +30,15 @@
   margin-right: 7px;
 }
 
-input[type='text'],
-input[type='email'],
-input[type='password'] {
+.form-wrapper input[type='text'],
+.form-wrapper input[type='email'],
+.form-wrapper input[type='password'] {
   font-family: inherit;
   padding: 13px 16px;
   border: 1px solid #c8cbd1;
   border-radius: 5px;
 }
 
-input[type='text']::placeholder {
+.form-wrapper input[type='text']::placeholder {
   color: #fe3756;
 }

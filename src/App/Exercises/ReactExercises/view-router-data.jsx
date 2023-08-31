@@ -12,6 +12,7 @@ import { MemoGameMetaData } from './MemoGame/router-data';
 import { ToDoWithServerMetaData } from './ToDoWithServer/router-data';
 import { ReactUseRefMetaData } from './ReactUseRef/router-data';
 import { FormsMetaData } from './Forms/router-data';
+import { OrderFormMetaData } from './OrderForm/router-data';
 
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
@@ -26,5 +27,6 @@ export const blockRouterMetaData = [
   ToDoWithServerMetaData,
   ReactUseRefMetaData,
   FormsMetaData,
+  OrderFormMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);

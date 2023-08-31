@@ -3,10 +3,10 @@ import './styles.css';
 
 // 2. Jako initialValue uzyc obiektu ze zdefiniowanymi polami
 const initialCourseTopics = {
-  css: false,
-  javascript: false,
-  react: false,
-  git: false,
+  css: { title: 'css advaced', status: false },
+  javascript: { title: 'javascript advaced', status: false },
+  react: { title: 'react advaced', status: false },
+  git: { title: 'git advaced', status: false },
 };
 
 export const Forms = () => {
@@ -41,7 +41,10 @@ export const Forms = () => {
   };
 
   // 3. Stworzyc tablice z initialValue: ['css', 'javascript', 'react', 'git']
-  const courseTopicsList = Object.keys(initialCourseTopics);
+  // const courseTopicsList = [];
+  // for (const [key, value] of Object.entries(initialCourseTopics)) {
+  //   return courseTopicsList.push(value);
+  // }
 
   return (
     <>
@@ -64,23 +67,26 @@ export const Forms = () => {
           <legend>Choose topics</legend>
           {/* 4. Przeiterowac po tej tablicy i stworzyc dla kazdej opcji
            checkbox (w returnie) */}
-          {courseTopicsList.map((option) => (
-            <div key={option}>
+          {Object.entries(initialCourseTopics).map((option) => (
+            <div key={option[0]}>
               {/* 5. Obsluzyc kazdy checkbox, dodac mu 
                jakies atrybuty (w returnie) */}
               <input
                 type="checkbox"
-                id={option}
-                value={option}
-                checked={courseTopics[option]}
+                id={option[0]}
+                value={option[1].state}
+                checked={courseTopics[option[0]].state}
                 onChange={(e) =>
                   setCourseTopics({
                     ...courseTopics,
-                    [option]: e.target.checked,
+                    [option[0]]: {
+                      title: option[1].title,
+                      state: e.target.checked,
+                    },
                   })
                 }
               />
-              <label htmlFor={option}>{option}</label>
+              <label htmlFor={option}>{option.title}</label>
             </div>
           ))}
         </fieldset>
@@ -117,6 +123,7 @@ export const Forms = () => {
           onChange={(e) => setName(e.target.value)}
         ></input>
         <p>Current value: {name || '(empty)'}</p>
+
         {/* Input type: email */}
         <label htmlFor="email">Email:</label>
         <input
@@ -127,6 +134,7 @@ export const Forms = () => {
           onChange={(e) => setEmail(e.target.value)}
         ></input>
         <p>Current value: {email || '(empty)'}</p>
+
         {/* Input type: password */}
         <label htmlFor="password">Password:</label>
         <input
@@ -138,6 +146,7 @@ export const Forms = () => {
           name="password"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
+
         {/* Input type: password (sprawdzenie poprawnosci) */}
         <label htmlFor="password-check">Confirm password:</label>
         <input
@@ -208,6 +217,7 @@ export const Forms = () => {
             Yes, I would like to join newsletter
           </label>
         </fieldset>
+
         <p>You checked: {optIn}</p>
         <button>Submit</button>
       </form>
