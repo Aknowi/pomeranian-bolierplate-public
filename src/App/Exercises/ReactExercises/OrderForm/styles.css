@@ -1,3 +1,8 @@
+/* input:required:invalid, */
+input[aria-invalid='true'] {
+  border: 1px solid red;
+}
+
 .of-wrapper {
   margin-top: 20px;
   display: flex;

@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import './styles.css';
-import { BulletIcon } from '../../../Components/Icons/BulletIcon';
 
 //  - dodać validacje hasła
 //  - czy wszystko powinno mieć required
-//  - porpawić dodatkowe opcje do zamowienia .map
 
 const additionList = [
   { id: 1, title: 'ustawienie środowiska', status: false },
@@ -46,6 +44,37 @@ export const OrderForm = () => {
       terms,
     };
     console.log(data);
+  };
+
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+
+  const validateField = (fieldName, value) => {
+    const newErrors = { ...errors };
+    console.log('newErrors ' + newErrors);
+    console.log('errors ' + errors.name);
+
+    switch (fieldName) {
+      case 'name':
+        newErrors.name = value.trim() === '' ? 'Name is required' : '';
+        break;
+      case 'email':
+        newErrors.email = !/\S+@\S+\.\S+/.test(value)
+          ? 'Invalid email format'
+          : '';
+        break;
+      case 'password':
+        newErrors.password =
+          value.length < 6 ? 'Password must be at least 6 characters long' : '';
+        break;
+      default:
+        break;
+    }
+
+    setErrors(newErrors);
   };
 
   return (
@@ -143,9 +172,13 @@ export const OrderForm = () => {
           type="text"
           id="name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => {
+            setName(e.target.value);
+            validateField(name, e.target.value);
+          }}
           placeholder="wpisz swoje imię i nazwisko"
         />
+        {errors.username && <p>{errors.username}</p>}
 
         <label className="of-select-title" htmlFor="nick">
           Twój pseudonium&#42;
@@ -156,6 +189,7 @@ export const OrderForm = () => {
           value={nick}
           onChange={(e) => setNick(e.target.value)}
           placeholder="wpisz swój nick"
+          required={true}
         />
         <label className="of-select-title" htmlFor="address">
           Adres do wysyłki&#42;
@@ -166,6 +200,7 @@ export const OrderForm = () => {
           value={address}
           onChange={(e) => setAddress(e.target.value)}
           placeholder="adres, na który mamy wsyłać zamówienie"
+          required={true}
         />
         <label className="of-select-title" htmlFor="email">
           Adres e-mail&#42;
@@ -176,6 +211,7 @@ export const OrderForm = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="jan.kowalski@gamil.com"
+          required={true}
         />
         <label className="of-select-title" htmlFor="phone">
           Numer kontaktowy&#42;
@@ -187,6 +223,7 @@ export const OrderForm = () => {
           // pattern="[+][0-9]{3} [0-9]{3} [0-9]{3} [0-9]{3}$"
           onChange={(e) => setPhone(e.target.value)}
           placeholder="+48 888 888 888"
+          required={true}
         />
         <label className="of-select-title" htmlFor="comment">
           Dodatkowe uwagi do zamówienia
