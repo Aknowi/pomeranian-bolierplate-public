@@ -79,7 +79,9 @@ const techStackData = [
 export const TechStack = () => {
   return (
     <div className="tech-stack-box">
-      <a href="/dashboard"> &#60; TECH STACK</a>
+      <a href="/dashboard" className="tech-back-link">
+        &#60; TECH STACK
+      </a>
       <p>
         Poniżej znajdziesz tech stack oraz nadzędzia, jakich nauczylem się
         podczas kursu.

@@ -1,0 +1,26 @@
+.settings-box {
+  font-family: Poppins;
+  color: #23213d;
+  margin: 40px;
+}
+
+.settings-back-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #23213d;
+}
+
+.settings-radio-title {
+  font-weight: 700;
+}
+
+.settings-radio {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-radio input {
+  margin-right: 10px;
+}

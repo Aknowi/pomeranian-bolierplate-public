@@ -1,7 +1,6 @@
 import React from 'react';
 import { SettingIcon } from '../Components/Icons/SettingIcon';
-import { ToggleArrow } from '../Components/Icons/ToggleArrow';
-import flowers from '../Images/tiles/flowers.jpg';
+import selfie from '../Images/iwona.png';
 import { RoundImage } from '../Components/RoundImage/RoundImage';
 
 import './styles/header.css';
@@ -18,25 +17,16 @@ export function AppHeader() {
         <Logo />
       </div>
       <div className="header-menu">
-        <button
-          onClick={() => handleButtonOnClick('setting')}
-          className="header-menu-svg"
-        >
+        <a href="./Settings" className="header-menu-svg">
           <SettingIcon />
-        </button>
+        </a>
         <div>
-          <RoundImage src={flowers} size="50px" />
+          <RoundImage src={selfie} size="50px" />
         </div>
         <div>
           <p>Iwona</p>
-          <p>Kursant</p>
+          <p>Kursantka</p>
         </div>
-        <button
-          onClick={() => handleButtonOnClick('dropdown')}
-          className="toggle-arrow-header header-menu-svg"
-        >
-          <ToggleArrow />
-        </button>
       </div>
     </header>
   );
