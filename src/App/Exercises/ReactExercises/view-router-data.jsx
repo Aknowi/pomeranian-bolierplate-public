@@ -14,6 +14,8 @@ import { ReactUseRefMetaData } from './ReactUseRef/router-data';
 import { FormsMetaData } from './Forms/router-data';
 import { LibrariesFormMetaData } from './LibrariesForm/router-data';
 import { FirebaseLoginFormMetaData } from './FirebaseLoginForm/router-data';
+import { ReduxMetaData } from './Redux/router-data';
+import { ReduxCounterMetaData } from './ReduxCounter/router-data';
 
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
@@ -30,5 +32,7 @@ export const blockRouterMetaData = [
   FormsMetaData,
   LibrariesFormMetaData,
   FirebaseLoginFormMetaData,
+  ReduxMetaData,
+  ReduxCounterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
