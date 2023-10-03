@@ -2,6 +2,7 @@
   font-family: Poppins;
   color: #23213d;
   margin: 40px;
+  accent-color: #fe3756;
 }
 
 .settings-back-link {
@@ -16,11 +17,25 @@
   font-weight: 700;
 }
 
-.settings-radio {
+.settings-radio label {
+  line-height: 2.5rem;
   display: flex;
-  flex-direction: column;
 }
 
 .settings-radio input {
   margin-right: 10px;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #9ca3af;
+  border-radius: 50px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.settings-radio input:hover,
+.settings-radio input:checked {
+  border: 1px solid #fe3756;
+  background-image: url('../Images/radio.svg');
+  background-size: contain;
 }

@@ -3,12 +3,10 @@ import './styles.css';
 export const Settings = () => {
   const handleSizeClick = (e) => {
     const root = document.documentElement;
-    console.log(root);
-    console.log(e.target.value);
     if (e.target.value === 'small-size') {
       root.style.setProperty('--base-font-size', 12 + 'px');
     } else if (e.target.value === 'large-size') {
-      root.style.setProperty('--base-font-size', 24 + 'px');
+      root.style.setProperty('--base-font-size', 20 + 'px');
     } else if (e.target.value === 'medium-size') {
       root.style.setProperty('--base-font-size', 16 + 'px');
     }
