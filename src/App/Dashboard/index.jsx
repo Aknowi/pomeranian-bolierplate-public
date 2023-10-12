@@ -1,9 +1,10 @@
 import { SeeMore } from '../Components/SeeMore/SeeMore';
 import './styles.css';
-import { PersonalCardIcon } from '../Components/Icons/PersonalCardIcon';
-import { MessageIcon } from '../Components/Icons/MessageIcon';
 import { EditIcon } from '../Components/Icons/EditIcon';
 import { CodeIcon } from '../Components/Icons/CodeIcon';
+import { Game } from '../Components/Icons/Game';
+import { BlogIcon } from '../Components/Icons/BlogIcon';
+import { User } from '../Components/Icons/User';
 
 export const Dashboard = () => {
   const dashboardData = [
@@ -12,22 +13,22 @@ export const Dashboard = () => {
       title: 'Ćwiczenia',
       icon: <EditIcon />,
       description: 'przegląd ćwiczeń',
-      href: '',
+      href: '/exercise',
       // blog, formularz, FAQ, toDo list itd.
     },
     {
       id: 2,
       title: 'Gry',
-      icon: <MessageIcon />,
+      icon: <Game />,
       description: 'chwila relaksu',
-      href: '',
+      href: '/games',
     },
     {
       id: 3,
       title: 'O kursie',
-      icon: <PersonalCardIcon />,
+      icon: <BlogIcon />,
       description: 'informacje o kursie',
-      href: '',
+      href: '/course',
     },
     {
       id: 4,
@@ -39,9 +40,9 @@ export const Dashboard = () => {
     {
       id: 5,
       title: 'O mnie',
-      icon: <CodeIcon />,
+      icon: <User />,
       description: 'kilka zdań o mnie',
-      href: '',
+      href: '/about-me',
     },
   ];
 

@@ -24,7 +24,6 @@ export function MoreOrLessGame() {
   function generateRandomNumber() {
     return Math.floor(Math.random() * 100) + 1;
   }
-  // console.log(randomN);
 
   return (
     <div className="game-box">

@@ -7,8 +7,6 @@ import { Blocks } from './App/Blocks';
 import { Layout } from './App/Layout';
 import { Dashboard } from './App/Dashboard';
 import { Exercises } from './App/Exercises';
-import { CV } from './App/CV';
-import { Calendar } from './App/Calendar';
 import { Blog } from './App/Blog';
 import { FAQ } from './App/FAQ';
 import { TechStack } from './App/TechStack';
@@ -38,8 +36,6 @@ export function App() {
           {/* Additional */}
           <Route path="exercises/*" element={<Exercises />} />
           <Route path="blocks/*" element={<Blocks />} />
-          <Route path="cv/*" element={<CV />} />
-          <Route path="calendar/*" element={<Calendar />} />
           <Route path="material-ui/*" element={<MaterialUi />} />
           <Route path="*" element={<NotFound />} />
         </Route>
