@@ -1,0 +1,51 @@
+.htm-wrapper {
+  font-family: Poppins;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.htm-header {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.htm-menu {
+  max-width: 750px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 38px;
+}
+
+.gameview-menu {
+  grid-template-columns: repeat(1, 200px 120px);
+  grid-row-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.htm-stage {
+  align-self: center;
+  max-width: 450px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.htm-stage-cell {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  background: #ebebeb;
+  display: flex;
+}
+.htm-stage-cell--green {
+  background: #e2fbd7;
+}
+
+.htm-stage-cell--red {
+  background: #f3aea8;
+}

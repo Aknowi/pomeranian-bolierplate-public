@@ -6,8 +6,8 @@
 }
 
 .card {
-  width: 220px;
-  height: 300px;
+  width: 300px;
+  height: 350px;
   background-color: #fff4f3;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px;
@@ -22,13 +22,13 @@
 }
 
 .card-image-wrapper {
-  height: 200px;
+  height: 250px;
   border-radius: 100% 0% 100% 0% / 0% 50% 50% 100%;
 }
 
 .card-image-wrapper img {
-  width: 220px;
-  height: 200px;
+  width: 300px;
+  height: 250px;
   border-radius: 100% 0% 100% 0% / 0% 50% 50% 100%;
 }
 

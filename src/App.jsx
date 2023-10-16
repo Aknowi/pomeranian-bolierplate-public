@@ -16,6 +16,9 @@ import { Exercise } from './App/Exercise';
 import { Games } from './App/Games';
 import { Course } from './App/Course';
 import { AboutMe } from './App/AboutMe';
+import { MoreOrLess } from './App/Games/MoreOrLess';
+import { MemoryGame } from './App/Games/MemoryGame';
+import { HitTheMoleGame } from './App/Games/HitTheMoleGame';
 
 export function App() {
   return (
@@ -33,6 +36,11 @@ export function App() {
           <Route path="settings/*" element={<Settings />} />
           <Route path="blog/*" element={<Blog />} />
           <Route path="faq/*" element={<FAQ />} />
+          <Route path="games/*" element={<Games />} />
+          {/* See in Games */}
+          <Route path="games/more-or-less-game*" element={<MoreOrLess />} />
+          <Route path="games/memory-game*" element={<MemoryGame />} />
+          <Route path="games/git-the-mole-game*" element={<HitTheMoleGame />} />
           {/* Additional */}
           <Route path="exercises/*" element={<Exercises />} />
           <Route path="blocks/*" element={<Blocks />} />
