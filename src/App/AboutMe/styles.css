@@ -1,0 +1,20 @@
+.aboutme-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.aboutme-text {
+  width: 400px;
+  align-self: center;
+  padding-left: 50px;
+}
+
+.aboutme-text h1 {
+  color: #ff4d69;
+}
+
+.aboutme-img-hand {
+  width: 35px;
+}

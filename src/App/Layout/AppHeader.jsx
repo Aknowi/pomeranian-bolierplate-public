@@ -7,10 +7,6 @@ import './styles/header.css';
 import { Logo } from '../Components/Logo/Logo';
 
 export function AppHeader() {
-  const handleButtonOnClick = (message) => {
-    console.log(message);
-  };
-
   return (
     <header>
       <div className="header-logo">

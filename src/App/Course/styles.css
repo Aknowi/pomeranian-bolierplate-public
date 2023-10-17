@@ -2,20 +2,38 @@
   max-width: 40vw;
   display: flex;
   flex-direction: column;
-  margin: 30px;
+  margin: 40px;
   font-family: Poppins;
+  line-height: 2.2;
+}
+
+.course-wrapper h2 {
+  margin: 0;
 }
 
 .course-info {
   display: flex;
 }
 
-.course-info svg {
-  margin: 50px;
-  transform: scale(160%);
+.course-info img {
+  margin: 10px 15px;
+  align-self: center;
+  width: 180px;
 }
 
 .course-info-text {
-  padding-right: 110px;
-  text-align: center;
+  padding-right: 50px;
+  align-self: center;
+  line-height: 1.5;
+}
+
+.course-note a {
+  text-decoration: none;
+  color: #ff4d69;
+  font-weight: 700;
+}
+
+.course-note a:hover {
+  text-decoration: underline #ff4d69;
+  text-decoration-thickness: 2px;
 }
