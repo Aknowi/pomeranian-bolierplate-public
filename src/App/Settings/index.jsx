@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import './styles.css';
 
 export const Settings = () => {
@@ -15,9 +16,11 @@ export const Settings = () => {
 
   return (
     <div className="settings-box">
-      <a href="/dashboard" className="settings-back-link">
-        &#60; Ustawienia
-      </a>
+      <nav>
+        <NavLink to="/dashboard" className="settings-back-link">
+          &#60; Ustawienia
+        </NavLink>
+      </nav>
       <p>
         Ustaw rozmiar tekstu zgodnie z Twoimi potrzebami oraz preferencjami.
       </p>

@@ -10,21 +10,21 @@ const GamesForCard = [
     src: more,
     alt: 'More or Less game preview',
     title: 'More or Less',
-    href: 'games/more-or-less-game',
+    navlink: '/games/more-or-less-game',
   },
   {
     key: 2,
     src: mole,
     alt: 'Hit The Mole game preview',
     title: 'Hit The Mole',
-    href: 'games/git-the-mole-game',
+    navlink: '/games/git-the-mole-game',
   },
   {
     key: 3,
     src: memo,
     alt: 'Memory game preview',
     title: 'Memory',
-    href: 'games/memory-game',
+    navlink: '/games/memory-game',
   },
 ];
 export const Games = () => {
@@ -36,7 +36,7 @@ export const Games = () => {
             src={game.src}
             alt={game.alt}
             title={game.title}
-            href={game.href}
+            navlink={game.navlink}
           />
         );
       })}

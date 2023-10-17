@@ -1,9 +1,15 @@
 import './styles.css';
 import Logo from '../Images/logo.png';
+import { NavLink } from 'react-router-dom';
 
 export const Course = () => {
   return (
     <div className="course-wrapper">
+      <nav>
+        <NavLink to="/dashboard" className="course-back-link">
+          &#60; O kursie
+        </NavLink>
+      </nav>
       <div className="course-note">
         <h2>Kurs Junior Front-end Developer</h2>
         <p>

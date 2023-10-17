@@ -1,10 +1,19 @@
 .course-wrapper {
-  max-width: 40vw;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
-  margin: 40px;
+  margin: 40px 0 0 40px;
   font-family: Poppins;
   line-height: 2.2;
+  color: #23213d;
+}
+
+.course-back-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #23213d;
 }
 
 .course-wrapper h2 {

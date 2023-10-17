@@ -6,7 +6,7 @@
   gap: 5px;
   font-family: Poppins;
   color: #23213d;
-  margin: 40px;
+  margin: 40px 0 0 40px;
 }
 
 .tech-back-link {
@@ -15,6 +15,7 @@
   font-weight: 700;
   font-size: 1.2rem;
   color: #23213d;
+  text-transform: uppercase;
 }
 
 .tech-stack-text {
@@ -28,6 +29,7 @@
   gap: 5px;
   align-items: center;
   text-align: center;
+  margin-top: 10px;
   border: 2px solid;
   border-image-slice: 1;
   border-image-source: linear-gradient(

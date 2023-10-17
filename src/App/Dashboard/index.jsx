@@ -13,7 +13,7 @@ export const Dashboard = () => {
       title: 'Ćwiczenia',
       icon: <EditIcon />,
       description: 'przegląd ćwiczeń',
-      href: '/exercise',
+      navlink: '/exercise',
       // blog, formularz, FAQ, toDo list itd.
     },
     {
@@ -21,28 +21,28 @@ export const Dashboard = () => {
       title: 'Gry',
       icon: <Game />,
       description: 'chwila relaksu',
-      href: '/games',
+      navlink: '/games',
     },
     {
       id: 3,
       title: 'O kursie',
       icon: <BlogIcon />,
       description: 'informacje o kursie',
-      href: '/course',
+      navlink: '/course',
     },
     {
       id: 4,
       title: 'Tech Stack',
       icon: <CodeIcon />,
       description: 'stack technologiczny realizowany na kursie',
-      href: '/tech-stack',
+      navlink: '/tech-stack',
     },
     {
       id: 5,
       title: 'O mnie',
       icon: <User />,
       description: 'kilka zdań o mnie',
-      href: '/about-me',
+      navlink: '/about-me',
     },
   ];
 
@@ -56,7 +56,7 @@ export const Dashboard = () => {
               title={element.title}
               icon={element.icon}
               description={element.description}
-              href={element.href}
+              navlink={element.navlink}
             />
           );
         })}

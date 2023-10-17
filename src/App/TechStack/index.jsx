@@ -13,6 +13,7 @@ import { Git } from '../Components/Icons/Git.jsx';
 import { Discord } from '../Components/Icons/Discord.jsx';
 import { Readmine } from '../Components/Icons/Readmine.jsx';
 import Vscode from '../Images/tech-stack/vscode.png';
+import { NavLink } from 'react-router-dom';
 
 const techStackBasics = [
   {
@@ -83,9 +84,11 @@ const techStackIntro = [
 export const TechStack = () => {
   return (
     <div className="tech-stack-box">
-      <a href="/dashboard" className="tech-back-link">
-        &#60; TECH STACK
-      </a>
+      <nav>
+        <NavLink to="/dashboard" className="tech-back-link">
+          &#60; Tech stack
+        </NavLink>
+      </nav>
       <p className="tech-stack-text">
         Poniżej znajdziesz tech stack oraz nadzędzia, jakich nauczyłam się
         podczas kursu.
