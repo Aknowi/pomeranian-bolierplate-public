@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import './styles.css';
+import { BackLink } from '../Components/BackLink';
 
 export const Settings = () => {
   const handleSizeClick = (e) => {
@@ -16,11 +16,7 @@ export const Settings = () => {
 
   return (
     <div className="settings-box">
-      <nav>
-        <NavLink to="/dashboard" className="settings-back-link">
-          &#60; Ustawienia
-        </NavLink>
-      </nav>
+      <BackLink link="/dashboard" title="Ustawienia" />
       <p>
         Ustaw rozmiar tekstu zgodnie z Twoimi potrzebami oraz preferencjami.
       </p>

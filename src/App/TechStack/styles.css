@@ -11,11 +11,6 @@
 
 .tech-back-link {
   grid-area: 1 / 1 / 2 / 3;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: #23213d;
-  text-transform: uppercase;
 }
 
 .tech-stack-text {
@@ -23,6 +18,7 @@
 }
 
 .tech-stack-grid {
+  grid-row: 3/4;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 50px 1fr 1fr 1fr;
@@ -43,4 +39,8 @@
 .tech-stack-grid-text {
   grid-area: 1 / 1 / 2 / 4;
   font-size: 1.1rem;
+}
+
+.tech-stack-grid-name {
+  margin-bottom: 0;
 }

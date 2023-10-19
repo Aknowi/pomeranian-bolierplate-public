@@ -2,16 +2,13 @@ import './styles.css';
 import selfie from '../Images/iwona.png';
 import hand from '../Images/waving.png';
 import { RoundImage } from '../Components/RoundImage/RoundImage';
-import { NavLink } from 'react-router-dom';
+import { BackLink } from '../Components/BackLink';
 
 export const AboutMe = () => {
   return (
     <div className="aboutme-wrapper">
-      <nav>
-        <NavLink to="/dashboard" className="aboutme-back-link">
-          &#60; O mnie
-        </NavLink>
-      </nav>
+      <BackLink link="/dashboard" title="O mnie" />
+
       <RoundImage src={selfie} size="200px" />
       <div className="aboutme-text">
         <h1>

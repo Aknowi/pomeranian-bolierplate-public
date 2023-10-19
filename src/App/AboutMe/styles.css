@@ -9,14 +9,6 @@
   align-self: start;
 }
 
-.aboutme-back-link {
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #23213d;
-  text-transform: uppercase;
-}
-
 .aboutme-wrapper .round-image {
   align-self: center;
 }
