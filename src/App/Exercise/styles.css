@@ -1,0 +1,20 @@
+.exercise-wrapper {
+  margin: 40px 0 0 40px;
+  font-family: Poppins;
+}
+
+.exercise-list {
+  list-style-position: inside;
+  padding-left: 0;
+  margin-top: 40px;
+}
+
+.exercise-list li {
+  list-style-image: url('../Images/arrow-forward.svg');
+  margin: 10px 0 20px 0;
+}
+
+.exercise-list-link {
+  text-decoration: none;
+  color: #23213d;
+}

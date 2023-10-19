@@ -31,14 +31,15 @@
   justify-content: center;
   display: flex;
   height: 40px;
-  width: 200px;
+  width: 180px;
   padding: 10px 15px;
   align-items: center;
-  margin: 28px 55px;
+  margin: 28px 65px;
   border-radius: 5px;
   border: 1px solid var(--grey-300, #c8cbd1);
   background: #fff;
   font-family: Inter;
+  text-align: center;
 }
 
 .game-box p {

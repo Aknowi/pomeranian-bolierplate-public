@@ -1,4 +1,5 @@
 import './styles.css';
+import { BackLink } from '../Components/BackLink';
 
 export const Settings = () => {
   const handleSizeClick = (e) => {
@@ -15,9 +16,7 @@ export const Settings = () => {
 
   return (
     <div className="settings-box">
-      <a href="/dashboard" className="settings-back-link">
-        &#60; Ustawienia
-      </a>
+      <BackLink link="/dashboard" title="Ustawienia" />
       <p>
         Ustaw rozmiar tekstu zgodnie z Twoimi potrzebami oraz preferencjami.
       </p>

@@ -1,9 +1,10 @@
 import { SeeMore } from '../Components/SeeMore/SeeMore';
 import './styles.css';
-import { PersonalCardIcon } from '../Components/Icons/PersonalCardIcon';
-import { MessageIcon } from '../Components/Icons/MessageIcon';
 import { EditIcon } from '../Components/Icons/EditIcon';
 import { CodeIcon } from '../Components/Icons/CodeIcon';
+import { Game } from '../Components/Icons/Game';
+import { BlogIcon } from '../Components/Icons/BlogIcon';
+import { User } from '../Components/Icons/User';
 
 export const Dashboard = () => {
   const dashboardData = [
@@ -12,36 +13,36 @@ export const Dashboard = () => {
       title: 'Ćwiczenia',
       icon: <EditIcon />,
       description: 'przegląd ćwiczeń',
-      href: '',
+      navlink: '/exercise',
       // blog, formularz, FAQ, toDo list itd.
     },
     {
       id: 2,
       title: 'Gry',
-      icon: <MessageIcon />,
+      icon: <Game />,
       description: 'chwila relaksu',
-      href: '',
+      navlink: '/games',
     },
     {
       id: 3,
       title: 'O kursie',
-      icon: <PersonalCardIcon />,
+      icon: <BlogIcon />,
       description: 'informacje o kursie',
-      href: '',
+      navlink: '/course',
     },
     {
       id: 4,
       title: 'Tech Stack',
       icon: <CodeIcon />,
       description: 'stack technologiczny realizowany na kursie',
-      href: '/tech-stack',
+      navlink: '/tech-stack',
     },
     {
       id: 5,
       title: 'O mnie',
-      icon: <CodeIcon />,
+      icon: <User />,
       description: 'kilka zdań o mnie',
-      href: '',
+      navlink: '/about-me',
     },
   ];
 
@@ -55,7 +56,7 @@ export const Dashboard = () => {
               title={element.title}
               icon={element.icon}
               description={element.description}
-              href={element.href}
+              navlink={element.navlink}
             />
           );
         })}

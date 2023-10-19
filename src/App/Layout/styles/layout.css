@@ -3,8 +3,8 @@
   width: 100vw;
   height: 100vh;
 
-  grid-template-columns: 10rem 1fr;
-  grid-template-rows: 5rem 4fr 5rem;
+  grid-template-columns: 15rem 1fr;
+  grid-template-rows: 7rem 4fr 6rem;
   grid-template-areas:
     'header header'
     'sidebar main'
@@ -16,10 +16,10 @@
 
 main {
   grid-area: main;
-  height: calc(100vh - 5rem - 5rem);
+  height: calc(100vh - 7rem - 6rem);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 1.5rem;
+  padding: 2rem;
 }
