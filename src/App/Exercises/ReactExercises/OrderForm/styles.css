@@ -115,4 +115,5 @@ select > option {
   font-family: inherit;
   font-size: 14px;
   text-transform: uppercase;
+  cursor: pointer;
 }

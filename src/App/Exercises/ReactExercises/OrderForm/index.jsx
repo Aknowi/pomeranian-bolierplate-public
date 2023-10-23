@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './styles.css';
 
 //  - dodać validacje hasła
-//  - czy wszystko powinno mieć required
 
 const additionList = [
   { id: 1, title: 'ustawienie środowiska', status: false },
@@ -11,8 +10,9 @@ const additionList = [
 ];
 
 export const OrderForm = () => {
-  const [course, setCourse] = useState('');
-  const [payment, setPayment] = useState('');
+  const [formSend, setFormSend] = useState(false);
+  const [course, setCourse] = useState('frontend');
+  const [payment, setPayment] = useState('blik');
   const [name, setName] = useState('');
   const [nick, setNick] = useState('');
   const [email, setEmail] = useState('');
@@ -40,48 +40,82 @@ export const OrderForm = () => {
       comment,
       account,
       password,
+      passwordCheck,
       newsletter,
       terms,
     };
-    console.log(data);
+
+    if (!Object.values(errors).some((error) => error !== '')) {
+      // Tu można umieścić logikę obsługi poprawnie wypełnionego formularza
+      console.log('Form submitted:', data);
+    }
   };
 
   const [errors, setErrors] = useState({
     name: '',
     email: '',
+    phone: '',
     password: '',
+    passwordCheck: '',
   });
 
   const validateField = (fieldName, value) => {
+    console.log(fieldName);
+    console.log(value);
+    console.log(value.length);
     const newErrors = { ...errors };
     console.log('newErrors ' + newErrors);
     console.log('errors ' + errors.name);
 
     switch (fieldName) {
       case 'name':
-        newErrors.name = value.trim() === '' ? 'Name is required' : '';
+        newErrors.name =
+          (value.trim() === '' ? 'Podaj swoje Imie i Nazwisko' : '') ||
+          !/^(\s*\w{3,}\s+\w{3,}\s*)$/gm.test(value)
+            ? 'Podaj swoje imie i nazwisko'
+            : '';
         break;
       case 'email':
-        newErrors.email = !/\S+@\S+\.\S+/.test(value)
-          ? 'Invalid email format'
+        newErrors.email = !/^(\s*\w+@\w+\.\w+\s*)$/gm.test(value)
+          ? 'Wprowadź poprwny adress e-mail'
+          : '';
+        break;
+      case 'phone':
+        newErrors.phone = !/^\s*\+?\d{0,2}.*\d{3}.*\d{3}.*\d{3}\s*$/gm.test(
+          value
+        )
+          ? 'Wprowadź poprwny numer telefonu'
           : '';
         break;
       case 'password':
         newErrors.password =
-          value.length < 6 ? 'Password must be at least 6 characters long' : '';
+          value.length < 8 ? 'Hasło musi zawierać przynajmniej 8 znaków' : '';
+        break;
+      case 'password-check':
+        newErrors.passwordCheck =
+          value !== password ? 'Hasła muszą się zgadzać' : '';
         break;
       default:
         break;
     }
-
     setErrors(newErrors);
   };
 
+  useEffect(() => {
+    if (formSend === true) {
+      validateField('name', name);
+      validateField('email', email);
+    }
+  }, [formSend]);
+
   return (
     <>
-      <form className="of-wrapper" onSubmit={handleOrder}>
+      <form
+        className="of-wrapper"
+        onClick={() => setFormSend(true)}
+        onSubmit={handleOrder}
+      >
         {/* Order */}
-        {/* <BulletIcon /> */}
         <h4 className="of-title">Zamówienie produktu</h4>
         {/* Select course */}
         <label className="of-select-title" htmlFor="choose-product">
@@ -97,7 +131,9 @@ export const OrderForm = () => {
           <option value="backend">kurs back-end</option>
           <option value="devops">kurs DevOps</option>
         </select>
+
         {/* radio check  payment*/}
+
         <fieldset className="of-fieldset payment-field">
           <legend className="of-select-title">
             Wybierz formę płatności&#42;
@@ -107,6 +143,7 @@ export const OrderForm = () => {
               id="blik"
               type="radio"
               value="blik"
+              name="payment"
               checked={payment === 'blik'}
               onChange={(e) => setPayment(e.target.value)}
             ></input>
@@ -118,6 +155,7 @@ export const OrderForm = () => {
               id="paypal"
               type="radio"
               value="paypal"
+              name="payment"
               checked={payment === 'paypal'}
               onChange={(e) => setPayment(e.target.value)}
             />
@@ -129,12 +167,16 @@ export const OrderForm = () => {
               id="transfer"
               type="radio"
               value="transfer"
+              name="payment"
               checked={payment === 'transfer'}
               onChange={(e) => setPayment(e.target.value)}
             />
             <label htmlFor="transfer">przelew tradycyjny</label>
           </div>
+          {errors.payment && <p>{errors.payment}</p>}
         </fieldset>
+
+        {/* checkbox  additions to order*/}
 
         <fieldset className="of-fieldset">
           <legend className="of-select-title">
@@ -162,23 +204,27 @@ export const OrderForm = () => {
             </div>
           ))}
         </fieldset>
-        {/* checkbox  additions to order*/}
+
         {/* Userdata */}
+
         <h4 className="of-title">Dane do realizacji zamówienia</h4>
         <label className="of-select-title" htmlFor="name">
           Imię i nazwisko&#42;
         </label>
         <input
           type="text"
+          name="name"
           id="name"
           value={name}
           onChange={(e) => {
             setName(e.target.value);
-            validateField(name, e.target.value);
+            validateField(e.target.name, e.target.value);
           }}
           placeholder="wpisz swoje imię i nazwisko"
+          aria-invalid={errors.username ? 'true' : 'false'}
+          required
         />
-        {errors.username && <p>{errors.username}</p>}
+        {errors.name && <p>{errors.name}</p>}
 
         <label className="of-select-title" htmlFor="nick">
           Twój pseudonium&#42;
@@ -189,7 +235,6 @@ export const OrderForm = () => {
           value={nick}
           onChange={(e) => setNick(e.target.value)}
           placeholder="wpisz swój nick"
-          required={true}
         />
         <label className="of-select-title" htmlFor="address">
           Adres do wysyłki&#42;
@@ -208,11 +253,17 @@ export const OrderForm = () => {
         <input
           type="email"
           id="email"
+          name="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            validateField(e.target.name, e.target.value);
+          }}
           placeholder="jan.kowalski@gamil.com"
           required={true}
         />
+        {errors.email && <p>{errors.email}</p>}
+
         <label className="of-select-title" htmlFor="phone">
           Numer kontaktowy&#42;
         </label>
@@ -235,6 +286,7 @@ export const OrderForm = () => {
           placeholder="Jeśli masz jakieś uwagi, wpisz je tutaj..."
         />
         {/* account */}
+
         <h4 className="of-title">Zakładanie konta</h4>
         <fieldset className="of-fieldset">
           <legend className="of-select-title">
@@ -257,12 +309,17 @@ export const OrderForm = () => {
           id="password"
           type="password"
           value={password}
-          minlength="8"
-          required
+          minLength="8"
           name="password"
           placeholder="lubieKwi@tki65"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            validateField(e.target.name, e.target.value);
+          }}
+          // aria-invalid={errors.password ? 'true' : 'false'}
         ></input>
+        {errors.password && <p>{errors.password}</p>}
+
         <label className="of-select-title" htmlFor="password-check">
           Powtórz hasło
         </label>
@@ -270,13 +327,18 @@ export const OrderForm = () => {
           id="password-check"
           type="password"
           value={passwordCheck}
-          minlength="8"
-          required
+          minLength="8"
           name="password-check"
           placeholder="lubieKwi@tki65"
-          onChange={(e) => setPasswordCheck(e.target.value)}
+          onChange={(e) => {
+            setPasswordCheck(e.target.value);
+            validateField(e.target.name, e.target.value);
+          }}
         ></input>
+        {errors.passwordCheck && <p>{errors.passwordCheck}</p>}
+
         {/* agreements */}
+
         <h4 className="of-title">Zgody i newsletter</h4>
         <fieldset className="of-fieldset">
           <legend className="of-select-title">
@@ -288,6 +350,7 @@ export const OrderForm = () => {
               id="terms"
               checked={terms}
               onChange={(e) => setTerms(e.target.checked)}
+              required
             />
             <label htmlFor="terms">akcetpuję regulamin&#42;</label>
           </div>
