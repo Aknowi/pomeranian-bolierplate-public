@@ -16,6 +16,15 @@ import { blockRouterMetaData as ExerciseJSFunctionsMetaData } from './ExerciseJS
 import { blockRouterMetaData as IntervalsDateMetaData } from './IntervalsDate/router-data';
 import { blockRouterMetaData as DateAndTimeDateMetaData } from './DateAndTime/router-data';
 import { blockRouterMetaData as AnimationsJSMetaData } from './AnimationsJS/router-data';
+import { blockRouterMetaData as OOPMetaData } from './OOP/router-data';
+import { blockRouterMetaData as TryCatchThisMetaData } from './TryCatchThis/router-data';
+import { blockRouterMetaData as JSONXMLStorageMetaData } from './JSONXMLStorage/router-data';
+import { blockRouterMetaData as SavedInputMetaData } from './SavedInput/router-data';
+import { blockRouterMetaData as PromisesMetaData } from './Promises/router-data';
+import { blockRouterMetaData as PromiseMethodsMetaData } from './PromiseMethods/router-data';
+import { blockRouterMetaData as DogAPIMetaData } from './DogAPI/router-data';
+import { blockRouterMetaData as LocalDevAndFetchMetaData } from './LocalDevAndFetch/router-data';
+import { blockRouterMetaData as DOMuseRefMetaData } from './DOMuseRef/router-data';
 
 export const blockRouterMetaData = [
   blockRouterMetaDataJsVariables1,
@@ -34,5 +43,14 @@ export const blockRouterMetaData = [
   IntervalsDateMetaData,
   DateAndTimeDateMetaData,
   AnimationsJSMetaData,
+  OOPMetaData,
+  TryCatchThisMetaData,
+  JSONXMLStorageMetaData,
+  SavedInputMetaData,
+  PromisesMetaData,
+  PromiseMethodsMetaData,
+  DogAPIMetaData,
+  LocalDevAndFetchMetaData,
+  DOMuseRefMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);

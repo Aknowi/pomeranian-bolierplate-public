@@ -1,0 +1,63 @@
+.etd-wrapper {
+  max-width: 400px;
+  height: 500px;
+  font-family: Poppins;
+  font-size: 16px;
+}
+
+.etd-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.etd-title {
+  flex-basis: 100%;
+  margin-bottom: 30px;
+}
+
+.etd-label {
+  flex-basis: 100%;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.etd-input-style {
+  height: 48px;
+  padding: 13px 16px;
+  border-radius: 5px;
+  border: 1px solid #c8cbd1;
+  font-family: inherit;
+  margin-bottom: 20px;
+}
+
+.etd-textarea {
+  flex-basis: 100%;
+  resize: none;
+  height: 120px;
+}
+
+.etd-button-style {
+  color: #fff;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 8px 35px;
+  flex-basis: 40%;
+  margin-left: 20px;
+}
+
+.etd-back {
+  background-color: #23213d;
+  border: 1px solid #23213d;
+}
+
+.etd-add {
+  border: 1px solid #fe3756;
+  background: #fe3756;
+}
+
+.etd-error-note {
+  color: #e12b1b;
+}

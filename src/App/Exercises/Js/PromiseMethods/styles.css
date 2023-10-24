@@ -1,0 +1,17 @@
+.promise-methods-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 600px;
+  font-family: Poppins;
+}
+
+.promise-methods-wrapper button {
+  border: 1px solid #fe3756;
+  background: #fe3756;
+  border-radius: 8px;
+  height: 50px;
+  width: 300px;
+  color: #fff;
+  font-family: inherit;
+}

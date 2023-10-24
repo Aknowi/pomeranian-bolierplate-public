@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--  exe.1 -->
+    <button id="clickOnMe">Kliknij we mnie</button>
+    <!--  exe.2 -->
+    <button class="showAndHide">Show/Hide</button>
+    <div class="peekABoo">Peek A Boo</div>
+    <!--  exe.3 -->
+    <button id="addDiv">Stwórz nowego diva</button>
+    <div class="mainDiv"></div>
+
+    <script>
+      //  exe.1 dodaj przycisk "kliknij we mnie"
+      //   i po kliknięciu w niego zmienić mu nazwę na "Kliknięto we mnie"
+
+      const clickOnMe = document.getElementById('clickOnMe');
+
+      clickOnMe.addEventListener('click', () => {
+        clickOnMe.textContent = 'Kliknięto we mnie';
+      });
+
+      // exe.2 dodac przycisk oraz dica z dowolnym tekstem.
+      //  Po kliknięciu w button div znika i pojawia się
+
+      const peekABoo = document.querySelector('.peekABoo');
+      const showAndHide = document.querySelector('.showAndHide');
+      peekABoo.style.background = 'pink';
+
+      showAndHide.addEventListener('click', () => {
+        if (peekABoo.style.display === 'none') {
+          peekABoo.style.display = 'block';
+        } else {
+          peekABoo.style.display = 'none';
+        }
+      });
+
+      //   exe.3 dodaj przycisk i diva - po kliknięciu w przycisk dodwany jest do diva
+      //  nowy div(dynamicznie tworzony) z tekstem "jest nas wiele"
+
+      const addDiv = document.getElementById('addDiv');
+      const mainDiv = document.querySelector('.mainDiv');
+      mainDiv.style.background = 'pink';
+
+      addDiv.addEventListener('click', () => {
+        const newDiv = document.createElement('div');
+        newDiv.style.display = 'inline';
+        newDiv.style.background = 'yellow';
+        newDiv.textContent = 'jest nas wiele';
+        mainDiv.appendChild(newDiv);
+      });
+    </script>
+  </body>
+</html>

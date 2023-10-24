@@ -1,0 +1,6 @@
+.game-card-wrapper {
+  display: flex;
+  gap: 2.2rem;
+  justify-content: center;
+  margin-top: 40px;
+}

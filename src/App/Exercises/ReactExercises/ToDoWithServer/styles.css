@@ -1,0 +1,32 @@
+.tdws-wrapper {
+  max-width: 600px;
+  font-family: Poppins;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tdws-add-button-style {
+  background-color: #fe3756;
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid #fe3756;
+  font-family: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.tdws-plus-button {
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  padding: 0px 5px;
+  margin-bottom: 20px;
+}
+
+.tdws-add-button {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 35px;
+}

@@ -1,0 +1,28 @@
+.aboutme-wrapper {
+  display: flex;
+  margin: 40px 0 0 40px;
+  font-family: Poppins;
+}
+
+.aboutme-wrapper nav {
+  display: flex;
+  align-self: start;
+}
+
+.aboutme-wrapper .round-image {
+  align-self: center;
+}
+
+.aboutme-text {
+  width: 400px;
+  align-self: center;
+  padding-left: 50px;
+}
+
+.aboutme-text h1 {
+  color: #ff4d69;
+}
+
+.aboutme-img-hand {
+  width: 35px;
+}

@@ -1,0 +1,87 @@
+.toDoItem-box {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  max-width: 650px;
+  height: 180px;
+  padding: 18px 24px;
+  border-radius: 8px;
+  border-left: 5px solid #c8cbd1;
+  box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.15),
+    0px 2px 28px 0px rgba(0, 0, 0, 0.12);
+  font-family: Poppins;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.toDoItem-title {
+  color: #23213d;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.toDoItem-details {
+  color: #6b7280;
+  font-size: 12px;
+  margin: 0;
+}
+
+.toDoItem-text {
+  color: #999999;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.toDoItem-buttons {
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+
+.toDoItem-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  height: 30px;
+}
+
+.toDoItem-done--error svg * {
+  stroke: #e12b1b;
+  fill: #e12b1b;
+}
+
+.toDoItem-trash--error svg * {
+  stroke: #e12b1b;
+}
+
+.toDoItem-text--error {
+  position: absolute;
+  color: #e12b1b;
+  font-size: 12px;
+  margin: 0;
+  height: 20px;
+  top: 40px;
+}
+
+.toDoItem-buttons-details {
+  align-self: flex-end;
+}
+
+.toDoItem-buttons-details svg * {
+  stroke: #07c23b;
+  fill: #07c23b;
+}
+
+.toDoItem--done {
+  background-color: #c8cbd1;
+  border-left: 5px solid #6b7280;
+}
+
+.toDoItem--done .toDoItem-left * {
+  color: rgba(107, 114, 128, 1);
+}

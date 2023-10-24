@@ -1,0 +1,130 @@
+/* input:required:invalid, */
+input[aria-invalid='true'] {
+  border: 1px solid red;
+}
+
+.of-wrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+  padding: 25px 100px 25px 50px;
+  background: #f4f5f7;
+  border-radius: 16px;
+  box-shadow: 0px 65px 30px 0px rgba(0, 0, 0, 0.01),
+    0px 8px 20px 0px rgba(0, 0, 0, 0.04), 0px 17px 35px 0px rgba(0, 0, 0, 0.05),
+    0px -4px 26px 0px rgba(0, 0, 0, 0.08);
+  font-family: Poppins;
+  font-size: 14px;
+  color: #222222;
+  accent-color: #fe3756;
+}
+
+.of-title {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin: 22px 0;
+}
+
+.of-select {
+  background: #fff;
+  padding: 10px 13px;
+  border: 1px solid #c8cbd1;
+  border-radius: 5px;
+  appearance: none;
+  font-family: inherit;
+  background-image: url('./arrow.png');
+  background-repeat: no-repeat;
+  background-position: 98%;
+  margin-bottom: 22px;
+}
+
+select > option {
+  font-family: Poppins;
+}
+
+.of-wrapper .form-input {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px 13px;
+  border: 1px solid #c8cbd1;
+  border-radius: 5px;
+  margin-bottom: 22px;
+  width: 350px;
+}
+
+.of-wrapper textarea {
+  resize: none;
+  font-size: 14px;
+}
+
+.of-fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  margin-bottom: 22px;
+}
+
+.of-fieldset > div {
+  padding: 8px 8px;
+}
+
+.of-fieldset input {
+  margin-right: 15px;
+  transform: scale(1.4);
+  cursor: pointer;
+}
+
+.of-fieldset input[type='radio'] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #9ca3af;
+  border-radius: 50px;
+}
+
+.of-fieldset input[type='radio']:checked {
+  border: 1px solid #fe3756;
+  background-image: url('./radio.svg');
+  background-size: contain;
+}
+
+.payment-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.of-select-title {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.submit-button {
+  align-self: center;
+  width: 300px;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid var(--primary-primary, #fe3756);
+  background: var(--primary-primary, #fe3756);
+  font-family: inherit;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#form-send {
+  color: #00a74a;
+}
+
+.form-error {
+  color: #b50024;
+  margin: 0 0 22px 0;
+}
+
+.of-wrapper .form-input-error {
+  margin: 0;
+  border: 2px solid #b50024;
+}
