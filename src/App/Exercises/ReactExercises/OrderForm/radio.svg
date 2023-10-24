@@ -1,0 +1,6 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="radio">
+<rect id="bg" x="0.5" y="0.5" width="23" height="23" rx="11.5" fill="white"/>
+<circle id="dot" cx="12" cy="12" r="9" transform="rotate(180 12 12)" fill="#FE3756"/>
+</g>
+</svg>
