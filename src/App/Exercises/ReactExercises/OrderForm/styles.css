@@ -44,10 +44,7 @@ select > option {
   font-family: Poppins;
 }
 
-.of-wrapper input[type='text'],
-.of-wrapper input[type='email'],
-.of-wrapper input[type='password'],
-.of-wrapper textarea {
+.of-wrapper .form-input {
   font-family: inherit;
   font-size: 14px;
   padding: 10px 13px;
@@ -116,4 +113,18 @@ select > option {
   font-size: 14px;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+#form-send {
+  color: #00a74a;
+}
+
+.form-error {
+  color: #b50024;
+  margin: 0 0 22px 0;
+}
+
+.of-wrapper .form-input-error {
+  margin: 0;
+  border: 2px solid #b50024;
 }

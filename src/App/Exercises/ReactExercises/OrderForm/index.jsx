@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './styles.css';
-
-//  - dodać validacje hasła
 
 const additionList = [
   { id: 1, title: 'ustawienie środowiska', status: false },
@@ -10,7 +8,7 @@ const additionList = [
 ];
 
 export const OrderForm = () => {
-  const [formSend, setFormSend] = useState(false);
+  const [isSend, setIsSend] = useState(false);
   const [course, setCourse] = useState('frontend');
   const [payment, setPayment] = useState('blik');
   const [name, setName] = useState('');
@@ -26,33 +24,35 @@ export const OrderForm = () => {
   const [address, setAddress] = useState('');
   const [addition, setAddition] = useState(additionList);
 
+  const data = {
+    course,
+    payment,
+    addition,
+    name,
+    nick,
+    address,
+    email,
+    phone,
+    comment,
+    account,
+    password,
+    passwordCheck,
+    newsletter,
+    terms,
+  };
+
   const handleOrder = (e) => {
     e.preventDefault();
-    const data = {
-      course,
-      payment,
-      addition,
-      name,
-      nick,
-      address,
-      email,
-      phone,
-      comment,
-      account,
-      password,
-      passwordCheck,
-      newsletter,
-      terms,
-    };
 
     if (!Object.values(errors).some((error) => error !== '')) {
-      // Tu można umieścić logikę obsługi poprawnie wypełnionego formularza
+      setIsSend(true);
       console.log('Form submitted:', data);
     }
   };
 
   const [errors, setErrors] = useState({
     name: '',
+    address: '',
     email: '',
     phone: '',
     password: '',
@@ -60,32 +60,30 @@ export const OrderForm = () => {
   });
 
   const validateField = (fieldName, value) => {
-    console.log(fieldName);
-    console.log(value);
-    console.log(value.length);
     const newErrors = { ...errors };
-    console.log('newErrors ' + newErrors);
-    console.log('errors ' + errors.name);
 
     switch (fieldName) {
       case 'name':
         newErrors.name =
           (value.trim() === '' ? 'Podaj swoje Imie i Nazwisko' : '') ||
-          !/^(\s*\w{3,}\s+\w{3,}\s*)$/gm.test(value)
-            ? 'Podaj swoje imie i nazwisko'
+          !/^(\w{3,}\s+\w{3,})$/gm.test(value)
+            ? 'Podaj swoje imię i nazwisko'
             : '';
+
+        break;
+      case 'address':
+        newErrors.address = value.length < 4 ? 'Podaj swój adres' : '';
         break;
       case 'email':
         newErrors.email = !/^(\s*\w+@\w+\.\w+\s*)$/gm.test(value)
-          ? 'Wprowadź poprwny adress e-mail'
+          ? 'Wprowadź poprawny adres e-mail'
           : '';
         break;
       case 'phone':
-        newErrors.phone = !/^\s*\+?\d{0,2}.*\d{3}.*\d{3}.*\d{3}\s*$/gm.test(
-          value
-        )
-          ? 'Wprowadź poprwny numer telefonu'
-          : '';
+        newErrors.phone =
+          !/^(\+\d{2,3})?\s?\d{3}[-\s]?\d{3}[-\s]?\d{3}$/gm.test(value)
+            ? 'Wprowadź poprawny numer telefonu'
+            : '';
         break;
       case 'password':
         newErrors.password =
@@ -101,20 +99,9 @@ export const OrderForm = () => {
     setErrors(newErrors);
   };
 
-  useEffect(() => {
-    if (formSend === true) {
-      validateField('name', name);
-      validateField('email', email);
-    }
-  }, [formSend]);
-
   return (
     <>
-      <form
-        className="of-wrapper"
-        onClick={() => setFormSend(true)}
-        onSubmit={handleOrder}
-      >
+      <form className="of-wrapper" onSubmit={handleOrder}>
         {/* Order */}
         <h4 className="of-title">Zamówienie produktu</h4>
         {/* Select course */}
@@ -173,7 +160,6 @@ export const OrderForm = () => {
             />
             <label htmlFor="transfer">przelew tradycyjny</label>
           </div>
-          {errors.payment && <p>{errors.payment}</p>}
         </fieldset>
 
         {/* checkbox  additions to order*/}
@@ -223,11 +209,12 @@ export const OrderForm = () => {
           placeholder="wpisz swoje imię i nazwisko"
           aria-invalid={errors.username ? 'true' : 'false'}
           required
+          className={`form-input ${errors.name ? 'form-input-error' : ''}`}
         />
-        {errors.name && <p>{errors.name}</p>}
+        {errors.name && <p className="form-error">{errors.name}</p>}
 
         <label className="of-select-title" htmlFor="nick">
-          Twój pseudonium&#42;
+          Twój pseudonium
         </label>
         <input
           type="text"
@@ -235,6 +222,7 @@ export const OrderForm = () => {
           value={nick}
           onChange={(e) => setNick(e.target.value)}
           placeholder="wpisz swój nick"
+          className="form-input"
         />
         <label className="of-select-title" htmlFor="address">
           Adres do wysyłki&#42;
@@ -242,11 +230,18 @@ export const OrderForm = () => {
         <input
           type="text"
           id="address"
+          name="address"
           value={address}
-          onChange={(e) => setAddress(e.target.value)}
+          onChange={(e) => {
+            setAddress(e.target.value);
+            validateField(e.target.name, e.target.value);
+          }}
           placeholder="adres, na który mamy wsyłać zamówienie"
           required={true}
+          className={`form-input ${errors.address ? 'form-input-error' : ''}`}
         />
+        {errors.address && <p className="form-error">{errors.address}</p>}
+
         <label className="of-select-title" htmlFor="email">
           Adres e-mail&#42;
         </label>
@@ -261,8 +256,9 @@ export const OrderForm = () => {
           }}
           placeholder="jan.kowalski@gamil.com"
           required={true}
+          className={`form-input ${errors.email ? 'form-input-error' : ''}`}
         />
-        {errors.email && <p>{errors.email}</p>}
+        {errors.email && <p className="form-error">{errors.email}</p>}
 
         <label className="of-select-title" htmlFor="phone">
           Numer kontaktowy&#42;
@@ -270,12 +266,18 @@ export const OrderForm = () => {
         <input
           type="text"
           id="phone"
+          name="phone"
           value={phone}
-          // pattern="[+][0-9]{3} [0-9]{3} [0-9]{3} [0-9]{3}$"
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={(e) => {
+            setPhone(e.target.value);
+            validateField(e.target.name, e.target.value);
+          }}
           placeholder="+48 888 888 888"
           required={true}
+          className={`form-input ${errors.phone ? 'form-input-error' : ''}`}
         />
+        {errors.phone && <p className="form-error">{errors.phone}</p>}
+
         <label className="of-select-title" htmlFor="comment">
           Dodatkowe uwagi do zamówienia
         </label>
@@ -284,6 +286,7 @@ export const OrderForm = () => {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           placeholder="Jeśli masz jakieś uwagi, wpisz je tutaj..."
+          className="form-input"
         />
         {/* account */}
 
@@ -302,40 +305,54 @@ export const OrderForm = () => {
             <label htmlFor="account">zakładam konto</label>
           </div>
         </fieldset>
-        <label className="of-select-title" htmlFor="password">
-          Moje hasło
-        </label>
-        <input
-          id="password"
-          type="password"
-          value={password}
-          minLength="8"
-          name="password"
-          placeholder="lubieKwi@tki65"
-          onChange={(e) => {
-            setPassword(e.target.value);
-            validateField(e.target.name, e.target.value);
-          }}
-          // aria-invalid={errors.password ? 'true' : 'false'}
-        ></input>
-        {errors.password && <p>{errors.password}</p>}
 
-        <label className="of-select-title" htmlFor="password-check">
-          Powtórz hasło
-        </label>
-        <input
-          id="password-check"
-          type="password"
-          value={passwordCheck}
-          minLength="8"
-          name="password-check"
-          placeholder="lubieKwi@tki65"
-          onChange={(e) => {
-            setPasswordCheck(e.target.value);
-            validateField(e.target.name, e.target.value);
-          }}
-        ></input>
-        {errors.passwordCheck && <p>{errors.passwordCheck}</p>}
+        {account && (
+          <>
+            <label className="of-select-title" htmlFor="password">
+              Moje hasło
+            </label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              minLength="8"
+              name="password"
+              placeholder="lubieKwi@tki65"
+              onChange={(e) => {
+                setPassword(e.target.value);
+                validateField(e.target.name, e.target.value);
+              }}
+              required={account === true}
+              className={`form-input ${
+                errors.password ? 'form-input-error' : ''
+              }`}
+            ></input>
+            {errors.password && <p className="form-error">{errors.password}</p>}
+
+            <label className="of-select-title" htmlFor="password-check">
+              Powtórz hasło
+            </label>
+            <input
+              id="password-check"
+              type="password"
+              value={passwordCheck}
+              minLength="8"
+              name="password-check"
+              placeholder="lubieKwi@tki65"
+              onChange={(e) => {
+                setPasswordCheck(e.target.value);
+                validateField(e.target.name, e.target.value);
+              }}
+              required={account === true}
+              className={`form-input ${
+                errors.passwordCheck ? 'form-input-error' : ''
+              }`}
+            ></input>
+            {errors.passwordCheck && (
+              <p className="form-error">{errors.passwordCheck}</p>
+            )}
+          </>
+        )}
 
         {/* agreements */}
 
@@ -374,6 +391,9 @@ export const OrderForm = () => {
           type="submit"
           value="Składam zamówienie"
         />
+        {isSend && (
+          <p id="form-send">Formularz został poprawnie wysłany, dziękujemy!</p>
+        )}
       </form>
     </>
   );
