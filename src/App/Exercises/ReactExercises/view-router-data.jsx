@@ -1,5 +1,4 @@
 import { getParsedRouterDataList } from '../../router-data/parseRouterData';
-
 import { SubRouteExampleMetaData } from './SubRouteExample/router-data';
 import { Cwiczenie1MetaData } from './Cwiczenie1/router-data';
 import { Cwiczenie2MetaData } from './Cwiczenie2/router-data';
@@ -13,6 +12,10 @@ import { ToDoWithServerMetaData } from './ToDoWithServer/router-data';
 import { ReactUseRefMetaData } from './ReactUseRef/router-data';
 import { FormsMetaData } from './Forms/router-data';
 import { OrderFormMetaData } from './OrderForm/router-data';
+import { LibrariesFormMetaData } from './LibrariesForm/router-data';
+import { FirebaseLoginFormMetaData } from './FirebaseLoginForm/router-data';
+import { ReduxMetaData } from './Redux/router-data';
+import { ReduxCounterMetaData } from './ReduxCounter/router-data';
 
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
@@ -28,5 +31,9 @@ export const blockRouterMetaData = [
   ReactUseRefMetaData,
   FormsMetaData,
   OrderFormMetaData,
+  LibrariesFormMetaData,
+  FirebaseLoginFormMetaData,
+  ReduxMetaData,
+  ReduxCounterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);

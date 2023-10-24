@@ -1,60 +1,53 @@
 import { SeeMore } from '../Components/SeeMore/SeeMore';
 import './styles.css';
-import { PersonalCardIcon } from '../Components/Icons/PersonalCardIcon';
-import { MessageIcon } from '../Components/Icons/MessageIcon';
 import { EditIcon } from '../Components/Icons/EditIcon';
 import { CodeIcon } from '../Components/Icons/CodeIcon';
+import { Game } from '../Components/Icons/Game';
 import { BlogIcon } from '../Components/Icons/BlogIcon';
-import waving from '../Images/waving.png';
+import { User } from '../Components/Icons/User';
 
 export const Dashboard = () => {
   const dashboardData = [
     {
       id: 1,
-      title: 'Moje CV',
-      icon: <PersonalCardIcon />,
-      description: 'podgląd cv wraz z doświadczeniem',
-      href: '',
+      title: 'Ćwiczenia',
+      icon: <EditIcon />,
+      description: 'przegląd ćwiczeń',
+      navlink: '/exercise',
+      // blog, formularz, FAQ, toDo list itd.
     },
     {
       id: 2,
-      title: 'Ćwiczenia',
-      icon: <EditIcon />,
-      description: 'wszystkie wykonane ćwiczenia',
-      href: '',
+      title: 'Gry',
+      icon: <Game />,
+      description: 'chwila relaksu',
+      navlink: '/games',
     },
     {
       id: 3,
-      title: 'Blog',
+      title: 'O kursie',
       icon: <BlogIcon />,
-      description: 'wpisy blogowe o technologi front-end',
-      href: '',
+      description: 'informacje o kursie',
+      navlink: '/course',
     },
     {
       id: 4,
       title: 'Tech Stack',
       icon: <CodeIcon />,
       description: 'stack technologiczny realizowany na kursie',
-      href: '/tech-stack',
+      navlink: '/tech-stack',
     },
     {
       id: 5,
-      title: 'FAQ',
-      icon: <MessageIcon />,
-      description: 'odpowiedzi na najczęstsze pytania',
-      href: '',
+      title: 'O mnie',
+      icon: <User />,
+      description: 'kilka zdań o mnie',
+      navlink: '/about-me',
     },
   ];
 
   return (
     <div className="dashboard">
-      <h2>
-        <img className="dashboard-wave-image" src={waving}></img>
-        Hej, tu Iwona!
-      </h2>
-      <p>
-        Poniżej znajdziesz najważniejsze informację na temat mojej działalności
-      </p>
       <div className="dashboard-cards-wrapper">
         {dashboardData.map((element) => {
           return (
@@ -63,7 +56,7 @@ export const Dashboard = () => {
               title={element.title}
               icon={element.icon}
               description={element.description}
-              href={element.href}
+              navlink={element.navlink}
             />
           );
         })}

@@ -2,18 +2,18 @@ import { NavLink } from 'react-router-dom';
 
 import './styles/aside.css';
 import { HouseIcon } from '../Components/Icons/HouseIcon';
-import { PersonalCardIcon } from '../Components/Icons/PersonalCardIcon';
-import { CalendarIcon } from '../Components/Icons/CalendarIcon';
+import { User } from '../Components/Icons/User';
 import { EditIcon } from '../Components/Icons/EditIcon';
+import { CodeIcon } from '../Components/Icons/CodeIcon';
 import { SettingIcon } from '../Components/Icons/SettingIcon';
-import { MessageIcon } from '../Components/Icons/MessageIcon';
+import { Game } from '../Components/Icons/Game';
 import { BlogIcon } from '../Components/Icons/BlogIcon';
 
 export function AppAside() {
   return (
     <aside>
       <nav>
-        <ul>
+        <ul className="aside-list">
           <li>
             <NavLink to="dashboard">
               <div className="aside-row">
@@ -23,15 +23,7 @@ export function AppAside() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="cv">
-              <div className="aside-row">
-                <PersonalCardIcon />
-                Moje CV
-              </div>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="exercises">
+            <NavLink to="exercise">
               <div className="aside-row">
                 <EditIcon />
                 Ćwiczenia
@@ -39,40 +31,47 @@ export function AppAside() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="calendar">
+            <NavLink to="games">
               <div className="aside-row">
-                <CalendarIcon />
-                Kalendarz
+                <Game />
+                Gry
               </div>
             </NavLink>
           </li>
           <li>
-            <NavLink to="blocks">
+            <NavLink to="course">
+              <div className="aside-row">
+                <BlogIcon />O kursie
+              </div>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="tech-stack">
+              <div className="aside-row">
+                <CodeIcon />
+                Tech Stack
+              </div>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="about-me">
+              <div className="aside-row">
+                <User />O mnie
+              </div>
+            </NavLink>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <NavLink to="settings">
               <div className="aside-row">
                 <SettingIcon />
-                Bloki
-              </div>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="blog">
-              <div className="aside-row">
-                <BlogIcon />
-                Blog
-              </div>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="FAQ">
-              <div className="aside-row">
-                <MessageIcon />
-                FAQ
+                Ustawienia
               </div>
             </NavLink>
           </li>
         </ul>
       </nav>
-      <p style={{ padding: '1rem 0' }}>Sidebar items, widgets, etc</p>
     </aside>
   );
 }
