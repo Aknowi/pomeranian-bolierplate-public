@@ -8,6 +8,7 @@ import { Layout } from './App/Layout';
 import { Dashboard } from './App/Dashboard';
 import { Exercises } from './App/Exercises';
 import { Blog } from './App/Exercise/Blog';
+import { OrderForm } from './App/Exercise/OrderForm';
 import { FAQ } from './App/Exercise/FAQ';
 import { TechStack } from './App/TechStack';
 import { MaterialUi } from './App/MaterialUi';
@@ -36,6 +37,7 @@ export function App() {
           <Route path="settings/*" element={<Settings />} />
           <Route path="blog/*" element={<Blog />} />
           <Route path="faq/*" element={<FAQ />} />
+          <Route path="order-form/*" element={<OrderForm />} />
           <Route path="games/*" element={<Games />} />
           {/* See in Games */}
           <Route path="games/more-or-less-game*" element={<MoreOrLess />} />

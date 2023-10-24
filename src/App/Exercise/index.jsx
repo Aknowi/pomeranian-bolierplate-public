@@ -9,13 +9,8 @@ export const Exercise = () => {
       <div>
         <ul className="exercise-list">
           <li>
-            <NavLink to="" className="exercise-list-link">
+            <NavLink to="/order-form" className="exercise-list-link">
               Formularz zamówienia
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="" className="exercise-list-link">
-              Lista To-Do
             </NavLink>
           </li>
           <li>
@@ -26,6 +21,11 @@ export const Exercise = () => {
           <li>
             <NavLink to="/blog" className="exercise-list-link">
               Blog
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/exercises" className="exercise-list-link">
+              Nieobrobione materiały z ćwiczeń
             </NavLink>
           </li>
         </ul>

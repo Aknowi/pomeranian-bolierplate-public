@@ -4,7 +4,7 @@
   height: 100vh;
 
   grid-template-columns: 15rem 1fr;
-  grid-template-rows: 7rem 4fr 6rem;
+  grid-template-rows: 7rem 4fr 4rem;
   grid-template-areas:
     'header header'
     'sidebar main'

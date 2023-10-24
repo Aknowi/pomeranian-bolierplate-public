@@ -14,9 +14,10 @@
 }
 
 .aboutme-text {
-  width: 400px;
+  width: 600px;
   align-self: center;
   padding-left: 50px;
+  margin-top: 20px;
 }
 
 .aboutme-text h1 {
@@ -25,4 +26,9 @@
 
 .aboutme-img-hand {
   width: 35px;
+}
+
+.aboutme-text-witcher {
+  display: flex;
+  text-align: center;
 }
