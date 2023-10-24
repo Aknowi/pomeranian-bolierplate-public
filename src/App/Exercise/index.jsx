@@ -19,12 +19,12 @@ export const Exercise = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="" className="exercise-list-link">
+            <NavLink to="/faq" className="exercise-list-link">
               FAQ
             </NavLink>
           </li>
           <li>
-            <NavLink to="" className="exercise-list-link">
+            <NavLink to="/blog" className="exercise-list-link">
               Blog
             </NavLink>
           </li>

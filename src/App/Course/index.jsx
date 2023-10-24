@@ -1,6 +1,7 @@
 import './styles.css';
 import Logo from '../Images/logo.png';
 import { BackLink } from '../Components/BackLink';
+import { NavLink } from 'react-router-dom';
 
 export const Course = () => {
   return (
@@ -22,7 +23,8 @@ export const Course = () => {
         <p>
           Zachęcam do zapoznania sie z moimi projektami, nad którymi pracowałam
           podczas mojej ścieżki edukacyjnej. Znaleźć je można w zakładce{' '}
-          <a href="/games">Gry</a> czy <a href="/exercise">Ćwiczenia</a>.
+          <NavLink to="/games">Gry</NavLink> czy{' '}
+          <NavLink to="/exercise">Ćwiczenia</NavLink>.
         </p>
 
         <h4>
