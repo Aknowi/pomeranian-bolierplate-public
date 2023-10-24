@@ -14,6 +14,8 @@ import { blockRouterMetaData as ObjectsMetaData } from './Objects/router-data';
 import { blockRouterMetaData as JsFunctionBasicsMetaData } from './JsFunctionBasics/router-data';
 import { blockRouterMetaData as ExerciseJSFunctionsMetaData } from './ExerciseJSFunctions/router-data';
 import { blockRouterMetaData as IntervalsDateMetaData } from './IntervalsDate/router-data';
+import { blockRouterMetaData as DateAndTimeDateMetaData } from './DateAndTime/router-data';
+import { blockRouterMetaData as AnimationsJSMetaData } from './AnimationsJS/router-data';
 import { blockRouterMetaData as OOPMetaData } from './OOP/router-data';
 import { blockRouterMetaData as TryCatchThisMetaData } from './TryCatchThis/router-data';
 import { blockRouterMetaData as JSONXMLStorageMetaData } from './JSONXMLStorage/router-data';
@@ -39,6 +41,8 @@ export const blockRouterMetaData = [
   JsFunctionBasicsMetaData,
   ExerciseJSFunctionsMetaData,
   IntervalsDateMetaData,
+  DateAndTimeDateMetaData,
+  AnimationsJSMetaData,
   OOPMetaData,
   TryCatchThisMetaData,
   JSONXMLStorageMetaData,

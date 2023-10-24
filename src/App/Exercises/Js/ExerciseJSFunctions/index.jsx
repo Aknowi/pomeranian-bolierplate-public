@@ -80,7 +80,6 @@ export const ExerciseJSFunctions = () => {
   // };
 
   // dlaczego key jest w [] oraz map([])??
-  console.log(person);
   console.log(changeForBigLetterPerson(person));
   console.log(person);
 
