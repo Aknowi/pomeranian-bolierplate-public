@@ -1,8 +1,8 @@
 import './styles/footer.css';
-import linkedin from '../Images/icons8-linkedin-30.png';
+import linkedin from '../Images/icons8-linkedin-29.png';
 import mail from '../Images/icons8-mail-30.png';
 import github from '../Images/icons8-github-30.png';
-import website from '../Images/icons8-website-30.png';
+import website from '../Images/icons8-website-29.png';
 
 const email = 'iwonkabigos@gmail.com';
 

@@ -19,8 +19,8 @@ export const AboutMe = () => {
         <p>
           Dedykowany technik z ponad 5-letnim doświadczeniem w księgowości,
           analizach finansowych, obecnie w trakcie przejścia do branży IT jako{' '}
-          <strong>Junior Frontend Developer</strong> poprzez ukończenie
-          pomorskiego kursu START.IT.
+          <strong>Junior Frontend Developer</strong>. Absolwent pomorskiego
+          kursu START.IT.
           <p>
             Posiadając wiedzę z zakresu podstaw programowania zdobytą podczas
             kursu, wnoszę mieszankę wiedzy branżowej i umiejętności

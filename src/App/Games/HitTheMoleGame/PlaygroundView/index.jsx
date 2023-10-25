@@ -91,7 +91,7 @@ export const PlaygroundView = ({ score, setScore }) => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setMoleFieldId(getRandomInt(10));
-    }, 1000);
+    }, 800);
 
     return () => clearInterval(intervalId);
   }, []);

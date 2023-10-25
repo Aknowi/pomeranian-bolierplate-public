@@ -95,30 +95,32 @@ export const TechStack = () => {
         podczas kursu.
       </p>
 
-      <div className="tech-stack-grid">
-        <p className="tech-stack-grid-text">Podstawy</p>
-        {techStackBasics.map((element, i) => {
-          return (
-            <div key={i}>
-              {element.component && element.component}
-              {element.src && <img src={element.src} alt={element.text} />}
-              <p className="tech-stack-grid-name">{element.text}</p>
-            </div>
-          );
-        })}
-      </div>
+      <div className="tech-icon-box">
+        <div className="tech-stack-grid">
+          <p className="tech-stack-grid-text">Podstawy</p>
+          {techStackBasics.map((element, i) => {
+            return (
+              <div key={i}>
+                {element.component && element.component}
+                {element.src && <img src={element.src} alt={element.text} />}
+                <p className="tech-stack-grid-name">{element.text}</p>
+              </div>
+            );
+          })}
+        </div>
 
-      <div className="tech-stack-grid">
-        <p className="tech-stack-grid-text">Pierwsze kroki</p>
-        {techStackIntro.map((element, i) => {
-          return (
-            <div key={i}>
-              {element.component && element.component}
-              {element.src && <img src={element.src} alt={element.text} />}
-              <p className="tech-stack-grid-name">{element.text}</p>
-            </div>
-          );
-        })}
+        <div className="tech-stack-grid">
+          <p className="tech-stack-grid-text">Pierwsze kroki</p>
+          {techStackIntro.map((element, i) => {
+            return (
+              <div key={i}>
+                {element.component && element.component}
+                {element.src && <img src={element.src} alt={element.text} />}
+                <p className="tech-stack-grid-name">{element.text}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

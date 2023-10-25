@@ -1,5 +1,4 @@
 .course-wrapper {
-  max-width: 800px;
   display: flex;
   flex-direction: column;
   margin: 40px 0 0 40px;
@@ -8,24 +7,17 @@
   color: #23213d;
 }
 
-.course-wrapper h2 {
+.course-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.course-box h2 {
   margin: 0;
 }
 
-.course-info {
-  display: flex;
-}
-
-.course-info img {
-  margin: 10px 15px;
-  align-self: center;
-  width: 180px;
-}
-
-.course-info-text {
-  padding-right: 50px;
-  align-self: center;
-  line-height: 1.5;
+.course-note {
+  max-width: 750px;
 }
 
 .course-note a {
@@ -37,4 +29,35 @@
 .course-note a:hover {
   text-decoration: underline #ff4d69;
   text-decoration-thickness: 2px;
+}
+
+.course-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.course-info img {
+  margin: 10px 15px;
+  align-self: center;
+  width: 180px;
+}
+
+.course-info-text {
+  width: 500px;
+  align-self: center;
+  line-height: 1.5;
+}
+
+.course-certificate-div {
+  display: flex;
+}
+
+.course-certificate-img {
+  width: 80%;
+  cursor: pointer;
+}
+
+.course-certificate--tap-img {
+  transform: rotate(-125deg);
+  align-self: start;
 }

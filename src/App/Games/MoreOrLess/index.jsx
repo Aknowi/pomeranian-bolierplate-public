@@ -28,7 +28,11 @@ export function MoreOrLess() {
   return (
     <div className="mol-game-box">
       <h2>Jaką jestem liczbą?</h2>
-      <button className="mol-button" type="button" onClick={handleStartOnClick}>
+      <button
+        className={`mol-button ${isActiveStartButton ? 'disabled' : ''}`}
+        type="button"
+        onClick={handleStartOnClick}
+      >
         START
       </button>
       {isActiveStartButton && (

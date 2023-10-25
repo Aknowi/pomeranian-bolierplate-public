@@ -40,7 +40,8 @@ export const MenuView = ({
         />
       </Menu>
 
-      <Menu label="Liczba kretów">
+      {/* Do rozwoju gry */}
+      {/* <Menu label="Liczba kretów">
         <SelectButtons
           setValue={handleMoleClick}
           options={[
@@ -49,7 +50,7 @@ export const MenuView = ({
             { value: 3, label: '3 krety', isActive: false },
           ]}
         />
-      </Menu>
+      </Menu> */}
 
       <Menu label="Przyciski sterujące">
         <Button onClick={handleStartClick}>Start</Button>
