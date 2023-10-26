@@ -39,9 +39,6 @@ export const CookieBanner = () => {
           >
             W PORZĄDKU
           </button>
-          <button onClick="" className="cookie-buttons button-secondary">
-            DOSTOSUJ ZGODY
-          </button>
         </div>
       </div>
     </div>
